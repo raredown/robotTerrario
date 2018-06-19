@@ -58,6 +58,9 @@
                 <div class="col">
                     <div id="huevo">
                         <p>Temperatura</p>
+                        <button onclick="window.location.href = 'ComunicacionArduino'">Continue</button>
+                     
+
                     </div>
                 </div>
                 <div class="col">
@@ -68,6 +71,7 @@
                 <div class="col">
                     <div id="huevo">
                         <p>Luz</p>
+                         <button onclick="window.location.href = 'jsp/luz.jsp'">Continue</button>
                     </div>
                 </div>
             </div>

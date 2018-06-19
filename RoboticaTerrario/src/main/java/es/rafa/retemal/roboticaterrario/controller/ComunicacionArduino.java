@@ -5,6 +5,7 @@
  */
 package es.rafa.retemal.roboticaterrario.controller;
 
+import es.rafa.retemal.roboticaterrario.common.Constantes;
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
@@ -69,19 +70,19 @@ public class ComunicacionArduino extends HttpServlet implements SerialPortEventL
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ComunicacionArduino</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ComunicacionArduino at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        if (request.getParameter("luz")!=null) {
+            String variable = request.getParameter("luz");
+            //encender
+            if (variable.equals(Constantes.UNO)) {
+                output.write(Constantes.UNO.getBytes());
+            }else{
+                output.write("2".getBytes());
+            }
+            System.out.println("*************************************");
+            output.flush();
         }
+        
+        response.sendRedirect("jsp/luz.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -192,17 +193,20 @@ public class ComunicacionArduino extends HttpServlet implements SerialPortEventL
     public void serialEvent(SerialPortEvent oEvent) {
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
+                //Esta manera vale si no es un puerto virtualizado
+                //String inputLine = input.readLine();
+                //System.out.println("prueba desde arduino" + inputLine);
                 int c;
                 StringBuilder response = new StringBuilder();
 
                 while (input.ready()) {
-                     c = input.read();
+                    c = input.read();
                     //Since c is an integer, cast it to a char. If it isn't -1, it will be in the correct range of char.
                     response.append((char) c);
                 }
                 String result = response.toString();
                 System.out.println(result);
-               // String inputLine = input.readLine();
+                // String inputLine = input.readLine();
                 //System.out.println(inputLine);
             } catch (Exception e) {
                 e.printStackTrace();
