@@ -10,10 +10,68 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.js"></script>
+
+
+
+        <link rel="stylesheet" type="text/css" href="css/menuHome/menuHome.css">
+        <script src="js/menuHome/menuHome.js"></script>
+
+
     </head>
     <body>
-        <h1>Hello World!</h1>
-        
-        <button onclick="window.location.href='/comunicacionArduino'">Continue</button>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+
+        <div class="container-fluid contenedorPrincipal" >
+            <div class="row">
+                <div class="col">
+                    <div id="huevo">
+                        <p>Temperatura</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="huevo">
+                        <p>Cam</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="huevo">
+                        <p>Luz</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>

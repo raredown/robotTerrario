@@ -5,13 +5,17 @@
  */
 package es.rafa.retemal.roboticaterrario.controller;
 
+import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -120,17 +124,91 @@ public class ComunicacionArduino extends HttpServlet implements SerialPortEventL
     }// </editor-fold>
 
     @Override
-    public void serialEvent(SerialPortEvent spe) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void destroy() {
         if (serialPort != null) {
             serialPort.removeEventListener();
             serialPort.close();
         }
     }
-    
-    
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        System.out.println("Empecienza el servlet");
+        //Para conectar a arduino
+        System.setProperty("gnu.io.rxtx.SerialPorts", "COM3");
+
+        CommPortIdentifier portId = null;
+
+        try {
+            Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
+            //First, Find an instance of serial port as set in PORT_NAMES. 
+            while (portEnum.hasMoreElements()) {
+                CommPortIdentifier currPortId = (CommPortIdentifier) portEnum.nextElement();
+                System.out.println("port ID: " + currPortId);
+                for (String portName : PORT_NAMES) {
+                    System.out.println("trying: " + portName);
+                    if (currPortId.getName().equals(portName)) {
+                        portId = currPortId;
+                        break;
+                    }
+                }
+            }
+        } catch (NoClassDefFoundError e) {
+            e.printStackTrace();
+        }
+
+        if (portId == null) {
+            System.out.println("No se encuentra el puerto.");
+        } else {
+            try {
+                // open serial port, and use class name for the appName. 
+                serialPort = (SerialPort) portId.open(this.getClass().getName(),
+                        TIME_OUT);
+
+                // set port parameters 
+                serialPort.setSerialPortParams(DATA_RATE,
+                        SerialPort.DATABITS_8,
+                        SerialPort.STOPBITS_1,
+                        SerialPort.PARITY_NONE);
+
+                input = new BufferedReader(new InputStreamReader(serialPort.getInputStream()));
+
+                output = serialPort.getOutputStream();
+
+                // add event listeners 
+                serialPort.addEventListener(this);
+                serialPort.notifyOnDataAvailable(true);
+
+                System.out.println("Puerto abierto.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.err.print("Error a intentar abri el puerto" + e);
+            }
+        }
+    }
+
+    @Override
+    public void serialEvent(SerialPortEvent oEvent) {
+        if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
+            try {
+                int c;
+                StringBuilder response = new StringBuilder();
+
+                while (input.ready()) {
+                     c = input.read();
+                    //Since c is an integer, cast it to a char. If it isn't -1, it will be in the correct range of char.
+                    response.append((char) c);
+                }
+                String result = response.toString();
+                System.out.println(result);
+               // String inputLine = input.readLine();
+                //System.out.println(inputLine);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.err.print("Error a intentar abri el puerto" + e);
+            }
+        }
+    }
+
 }
