@@ -1,0 +1,48 @@
+<html>
+<link href="estilos/estilos.css" rel="stylesheet" type="text/css">
+<body leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
+<table align="center" border="0" width="100%">
+        <tr>
+           <td>
+                <table align="center" width="100%"  border="1" class="tablas" >
+                    <tr>
+                       <td width="100%" align="left" align="left" class="bgCabeceraFila"><small>Asunto</small></td>
+                    </tr>
+                    <tr>   
+                       <td width="100%" align="left" class="texto"><small>
+                       <script language="JavaScript">
+
+                           document.write(window.opener.document.forms['theForm2'].valorasunto.value);
+                        </script>
+                       </small>
+                       </td>
+                   </tr> 
+                   <tr>
+                       <td width="100%" align="left" class="bgCabeceraFila"><small>Detalle</small></td>
+                    </tr>
+                    <tr>   
+                       <td width="100%" align="left" class="texto"><small>
+                       <script language="JavaScript">
+
+                           document.write(window.opener.document.forms['theForm2'].valordetalle.value);
+                        </script>
+                       </small>
+                       </td>
+                   </tr>  
+                </table>        
+                       
+                       
+       </tr>
+    </table>   
+
+<p>
+<center>
+<form>
+<center>
+ <A HREF="javascript:window.close()" onMouseOver="window.status='Cerrar';return true;" onMouseOver="window.status=' '"><img src="images/Aceptar.jpg" border="0" width="107" height="28"></A>
+</center>
+</form>
+</center>
+</p>
+</body>
+</html>

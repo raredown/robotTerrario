@@ -1,0 +1,46 @@
+.cabecera {
+	font-family: arial;
+	font-size: 16px;
+	font-style: normal;
+	color: #85B377;
+	letter-spacing: 6px;
+	word-spacing: normal;
+	font-weight: bolder;
+
+}
+.TextoFunción {
+	font-family: Verdana;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	color: #000000;
+}
+.CabTabla {
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	color: #000000;
+	text-decoration: none;
+	height: 2px;
+	width: 225px;
+	padding-bottom: 2pt;
+
+
+}
+.NormalTabla {
+	font-family: verdana;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: bolder;
+}
+.Titulo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-style: oblique;
+	font-weight: bold;
+	font-variant: small-caps;
+	color: #FF9900;
+}

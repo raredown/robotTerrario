@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Documento sin t&iacute;tulo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="Hoja_estilos_ayuda.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<span class="cabecera">Cancelaci&oacute;n de Cambio de Operador (por Fichero)</span> 
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p> <span class="TextoFunci&oacute;n">Las cancelaciones deber&aacute;n estar 
+  previamente cumplimentadas y almacenadas en un archivo en disco. </span></p>
+<p class="TextoFunci&oacute;n"  >Este <strong>proceso</strong> se compone basicamente 
+  de <strong>dos pasos</strong>:</p>
+<ul>
+  <li class="TextoFunci&oacute;n">El primero, es la carga de fichero con la informaci&oacute;n 
+    de los procesos a cancelar.</li>
+  <li class="TextoFunci&oacute;n">El segundo, consiste en el env&iacute;o de mensajes 
+    a la Entidad de Referencia. </li>
+</ul>
+<table width="650" border="0" cellspacing="0">
+  <tr> 
+    <td width="66%"><img src="Images/image1_1_4_5.jpg" width="552" height="116"></td>
+    <td width="34%" class="TextoFunci&oacute;n"><p>Para el <strong>primer paso</strong>, 
+        deber&aacute; escribir la ruta completa del fichero o pulsar el <a href="#CargarDatos"><strong>botón 
+        &quot;Examinar&quot;</strong></a></p>
+      <p> Para el <strong>segundo paso</strong> deber&aacute; <strong>pulsar</strong> 
+        sobre el literal <a href="#VerPendiente"><strong>&quot;Ver cancelaciones pendientes&quot;</strong></a>.</p></td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><a name="CargarDatos"></a><u><strong>Cargar Datos</strong></u> 
+  .- <span class="TextoFunci&oacute;n">Las cancelaciones deber&aacute;n estar 
+  previamente cumplimentadas y almacenadas en un archivo en disco. Para activar 
+  el proceso se debe escribir el PATH del archivo en la caja correspondiente 
+  <strong>&quot;Cargar Datos del Fichero&quot;</strong>, o pulsar el bot&oacute;n 
+  &quot;<em><strong>Examinar</strong></em>&quot; y abrir una ventana donde 
+  podr&aacute; navegar por la estructura l&oacute;gica de los directorios del 
+  disco, seleccionando el archivo adecuado. Esta operaci&oacute;n rellenar&aacute; 
+  la caja de texto con el nombre y Path del fichero.</span></p>
+<div align="justify"> 
+  <p><span class="TextoFunci&oacute;n">Una vez tengamos el nombre del fichero, 
+    pulsaremos el bot&oacute;n &quot;Cargar&quot;. Esta acción desencadena un 
+    proceso de lectura y validación de la información que contiene el fichero. 
+    Si se detecta alguna inconsistencia o violación de las reglas de configuración 
+    del fichero, el sistema mostrará una ventana con las anomal&iacute;as detectadas. 
+    En caso contrario, la información quedará en situación de ser transferida. 
+    </span></p>
+</div>
+<p align="center" class="TextoFunci&oacute;n"><strong><u>NORMAS PARA LA CREACI&Oacute;N 
+  DEL ARCHIVO DE CANCELACIONES</u></strong></p>
+<ul class="TextoFunci&oacute;n">
+  <li> Cada cancelaci&oacute;n completa ha de tener como &uacute;ltimo car&aacute;cter 
+    un salto de carro.</li>
+  <li> Cada campo ir&aacute; separado del siguiente por el car&aacute;cter &quot;;&quot;.</li>
+  <li> La longitud m&aacute;xima de los campos seg&uacute;n la tabla adjunta, 
+    no podr&aacute; ser excedida bajo ning&uacute;n concepto.</li>
+  <li> Salvo que se indique lo contrario, todos los campos son obligatorios.</li>
+  <li> Si alguno de los campos opcionales se deja en blanco, se incluir&aacute;
+  	exclusivamente el separador (";").</li>
+</ul>
+<br/>
+<table width="650" border="0" cellspacing="0">
+  <tr bgcolor="#CCC17A"> 
+    <td width="34%" class="NormalTabla"><div align="center">NOMBRE CAMPO</div></td>
+    <td width="8%" class="NormalTabla"><div align="center">TAMA&Ntilde;O</div></td>
+    <td	width="58%" class="NormalTabla"><div align="center">CARACTER&Iacute;STICAS</div></td>
+  </tr>
+</table>
+<img src="Images/PIXEL.gif" width="650" height="2"><br>
+<table width="650" border="0">
+  <tr> 
+    <td width="34%" class="NormalTabla">Id Proceso a cancelar</td>
+    <td width="8%" class="TextoFunci&oacute;n"><div align="center">20</div></td>
+    <td width="58%" class="TextoFunci&oacute;n">El identificador del proceso que se desea cancelar.
+    </td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">C&oacute;digo de cancelaci&oacute;n</td>
+    <td class="TextoFunci&oacute;n"><div align="center">4</div></td>
+    <td class="TextoFunci&oacute;n">C&oacute;digo del motivo de cancelaci&oacute;n. S&oacute;lo
+    	se admitir&aacute;n c&oacute;digos v&aacute;lidos.
+      </td>
+  </tr>
+  <tr> 
+    <td height="22" class="NormalTabla">Observaciones</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.
+    	<p>Cualquier observaci&oacute;n que queramos incluir en la cancelaci&oacute;n.</p>
+    </td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><a name="VerPendiente"></a> <u><strong>Ver cancelaciones</strong></u>.- 
+  Lo importante de esta opci&oacute;n es poder ver todas las <strong>cancelaciones 
+  </strong>cargadas en el sistema <strong>pendientes de env&iacute;o</strong> . 
+  Tambi&eacute;n desde esta pantalla podr&aacute; <strong>eliminar las cancelaciones</strong> que desee.</p>
+<p class="TextoFunci&oacute;n"><img src="Images/image1_1_4_6.jpg"></p>
+<p class="TextoFunci&oacute;n">Las acciones disponibles desde esta pantalla son:</p>
+<table width="650" border="0" cellspacing="0">
+  <tr> 
+    <td width="95"><div align="center"><img src="Images/image_aspa_borrar.jpg" width="18" height="22"></div></td>
+    <td width="551" class="TextoFunci&oacute;n"> Eliminar cancelaci&oacute;n de la relaci&oacute;n</td>
+  </tr>
+  <tr> 
+    <td height="22"><div align="center"><img src="Images/image_ver_Rangos.jpg" width="13" height="13"></div></td>
+    <td class="TextoFunci&oacute;n"> Ver rango de n&uacute;meros a cancelar</td>
+  </tr>
+  <tr> 
+    <td height="22"><img src="../images/EliminarTodas.jpg"></td>
+    <td class="TextoFunci&oacute;n"> Eliminar <strong>todas</strong> las cancelaciones 
+    	pendientes de envío
+    </td>
+  </tr>
+  <tr> 
+    <td height="22"><img src="../images/Back.jpg"></td>
+    <td class="TextoFunci&oacute;n"> Volver a la p&aacute;gina anterior </td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p align="right"> 
+  <input type="button" value="Cerrar" onClick="window.close()" name="button">
+</p></p>
+</body>
+</html>

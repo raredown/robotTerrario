@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Documento sin t&iacute;tulo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="Hoja_estilos_ayuda.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<span class="cabecera">Denegaci&oacute;n de Cambio de Operador (por Fichero)</span> 
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p> <span class="TextoFunci&oacute;n">Las denegaciones deber&aacute;n estar 
+  previamente cumplimentadas y almacenadas en un archivo en disco. </span></p>
+<p class="TextoFunci&oacute;n">Este <strong>proceso</strong> se compone &uacute;nicamente 
+  de <strong>un paso</strong>: la carga del fichero.</p>
+<table width="650" border="0" cellspacing="0">
+  <tr> 
+    <td width="66%"><img src="Images/image1_2_1_4.jpg"></td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><u><strong>Cargar Datos</strong></u> 
+  .- <span class="TextoFunci&oacute;n">Las denegaciones deber&aacute;n estar 
+  previamente cumplimentadas y almacenadas en un archivo en disco. Para activar 
+  el proceso se debe escribir el PATH del archivo en la caja correspondiente 
+  <strong>&quot;Cargar Datos del Fichero&quot;</strong>, o pulsar el bot&oacute;n 
+  &quot;<em><strong>Examinar</strong></em>&quot; y abrir una ventana donde 
+  podr&aacute; navegar por la estructura l&oacute;gica de los directorios del 
+  disco, seleccionando el archivo adecuado. Esta operaci&oacute;n rellenar&aacute; 
+  la caja de texto con el nombre y Path del fichero.</span></p>
+<div align="justify"> 
+  <p><span class="TextoFunci&oacute;n">Una vez tengamos el nombre del fichero, 
+    pulsaremos el bot&oacute;n &quot;Cargar&quot;. Esta acción desencadena un 
+    proceso de lectura y validación de la información que contiene el fichero. 
+    Si se detecta alguna inconsistencia o violación de las reglas de configuración 
+    del fichero, el sistema mostrará una ventana con las anomal&iacute;as detectadas. 
+    En caso contrario, la información quedará en situación de ser transferida. 
+    </span></p>
+</div>
+<p align="center" class="TextoFunci&oacute;n"><strong><u>NORMAS PARA LA CREACI&Oacute;N 
+  DEL ARCHIVO DE DENEGACIONES</u></strong></p>
+<ul class="TextoFunci&oacute;n">
+  <li> Cada denegaci&oacute;n completa ha de tener como &uacute;ltimo car&aacute;cter 
+    un salto de carro.</li>
+  <li> Cada campo ir&aacute; separado del siguiente por el car&aacute;cter &quot;;&quot;.</li>
+  <li> La longitud m&aacute;xima de los campos seg&uacute;n la tabla adjunta, 
+    no podr&aacute; ser excedida bajo ning&uacute;n concepto.</li>
+  <li> Salvo que se indique lo contrario, todos los campos son obligatorios.</li>
+  <li> Si alguno de los campos opcionales se deja en blanco, se incluir&aacute;
+  	exclusivamente el separador (";").</li>
+</ul>
+<br/>
+<table width="650" border="0" cellspacing="0">
+  <tr bgcolor="#FFA701"> 
+    <td width="34%" class="NormalTabla"><div align="center">NOMBRE CAMPO</div></td>
+    <td width="8%" class="NormalTabla"><div align="center">TAMA&Ntilde;O</div></td>
+    <td	width="58%" class="NormalTabla"><div align="center">CARACTER&Iacute;STICAS</div></td>
+  </tr>
+</table>
+<img src="Images/PIXEL.gif" width="650" height="2"><br>
+<table width="650" border="0">
+  <tr> 
+    <td class="NormalTabla">Id Proceso</td>
+    <td class="TextoFunci&oacute;n"><div align="center">20</div></td>
+    <td class="TextoFunci&oacute;n">El identificador del proceso que se quiere denegar.
+      </td>
+  </tr>
+  <tr bgcolor="#FBCE74"> 
+    <td width="34%" class="NormalTabla">C&oacute;digo de denegaci&oacute;n</td>
+    <td width="8%" class="TextoFunci&oacute;n"><div align="center">4</div></td>
+    <td width="58%" class="TextoFunci&oacute;n">El código de rechazo. S&oacute;lo se 
+    	admitir&aacute;n c&oacute;digos v&aacute;lidos.
+    </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Observaciones</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.
+    	<p>Observaciones extra para incluir en el mensaje DSP2.</p>
+    </td>
+  </tr>
+  <tr bgcolor="#FBCE74"> 
+    <td class="NormalTabla">Nombre de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.
+    	<p>El nombre de la persona de contacto.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Tel&eacute;fono de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si se incluye el campo <em>&quot;Nombre de Contacto&quot;</em>.
+    </td>
+  </tr>
+  <tr bgcolor="#FBCE74"> 
+    <td class="NormalTabla">Fax de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si se incluye el campo <em>&quot;Nombre de Contacto&quot;</em>.
+    </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Email de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si se incluye el campo <em>&quot;Nombre de Contacto&quot;</em>.
+    </td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n">El env&iacute;o del mensaje DSP2 es autom&aacute;tico.</p>
+<p class="TextoFunci&oacute;n"><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p align="right"> 
+  <input type="button" value="Cerrar" onClick="window.close()" name="button">
+</p>
+</body>
+</html>

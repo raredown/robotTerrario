@@ -1,0 +1,3578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="2.4">
+
+	<display-name>portanode</display-name>
+	<description>Descripcion Aplicacion</description>
+
+	<context-param>
+		<param-name>
+			javax.servlet.jsp.jstl.fmt.localizationContext
+		</param-name>
+		<param-value>es.portanode.conf.languages.ApplicationResources
+		</param-value>
+	</context-param>
+
+	<!-- Struts Tag Library Descriptors  -->
+	<jsp-config>
+		<taglib>
+			<taglib-uri>/tags/struts-bean</taglib-uri>
+			<taglib-location>
+				/WEB-INF/tld/struts-bean.tld
+			</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/struts-html</taglib-uri>
+			<taglib-location>
+				/WEB-INF/tld/struts-html.tld
+			</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/struts-logic</taglib-uri>
+			<taglib-location>
+				/WEB-INF/tld/struts-logic.tld
+			</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/struts-nested</taglib-uri>
+			<taglib-location>
+				/WEB-INF/tld/struts-nested.tld
+			</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/struts-tiles</taglib-uri>
+			<taglib-location>
+				/WEB-INF/tld/struts-tiles.tld
+			</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/struts.tld</taglib-uri>
+			<taglib-location>/WEB-INF/tld/c.tld
+			</taglib-location>
+		</taglib>
+	</jsp-config>
+	
+	<!-- Displaytag -->
+	<filter>
+		<filter-name>ResponseOverrideFilter</filter-name>
+	    <filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
+	</filter>
+
+  	<filter-mapping>
+    	<filter-name>ResponseOverrideFilter</filter-name>
+    	<url-pattern>*.html</url-pattern>
+  	</filter-mapping>
+  	
+  	<filter-mapping>
+    	<filter-name>ResponseOverrideFilter</filter-name>
+    	<url-pattern>*.htm</url-pattern>
+  	</filter-mapping>
+  	
+  	<filter-mapping>
+    	<filter-name>ResponseOverrideFilter</filter-name>
+    	<url-pattern>*.jsp</url-pattern>
+  	</filter-mapping>
+  	
+  	<filter-mapping>
+    	<filter-name>ResponseOverrideFilter</filter-name>
+    	<url-pattern>*.do</url-pattern>
+  	</filter-mapping>
+  	<!-- Displaytag -->
+  	
+	<!-- <filter>
+		<filter-name>GestFilter</filter-name>
+		<filter-class>es.gateway.sesiones.GestionFiltrado</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>GestFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>GestFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping> -->
+
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>JCrontabServlet</servlet-name>
+		<servlet-class>org.jcrontab.web.loadCrontabServlet
+		</servlet-class>
+		<init-param>
+			<param-name>PROPERTIES_FILE</param-name>
+			<param-value>
+				/opt/app/glassfish4/glassfish/domains/domain1/applications/gateway/WEB-INF/classes/es/portanode/conf/cron/jcrontab.properties
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>MenuPrincipal</servlet-name>
+		<display-name>MenuPrincipalServlet</display-name>
+		<description>Su descripcion</description>
+		<servlet-class>es.portanode.servlets.MenuPrincipalHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MenuRolReceptor</servlet-name>
+		<display-name>MenuRolReceptorServlet
+		</display-name>
+		<description>Su descripcion</description>
+		<servlet-class>es.portanode.servlets.MenuRolReceptorHandler
+		</servlet-class>
+	</servlet>
+		<servlet>
+		<servlet-name>MenuMantenimientoSistema</servlet-name>
+		<display-name>MenuMantenimientoSistemaServlet
+		</display-name>
+		<description>Su descripcion</description>
+		<servlet-class>es.portanode.servlets.MenuMantenimientoSistemaHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MenuRolDonante</servlet-name>
+		<display-name>MenuRolDonanteServlet
+		</display-name>
+		<description>Su descripcion</description>
+		<servlet-class>es.portanode.servlets.MenuRolDonanteHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MenuReenvioMensajes</servlet-name>
+		<display-name>MenuReenvioMensajesServlet
+		</display-name>
+		<description>Su descripcion</description>
+		<servlet-class>es.portanode.servlets.MenuReenvioMensajesHandler
+		</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>MenuOtrosMensajes</servlet-name>
+		<display-name>MenuOtrosMensajesServlet
+		</display-name>
+		<description>Su descripcion</description>
+		<servlet-class>es.portanode.servlets.MenuOtrosMensajesHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MenuParamSistema</servlet-name>
+		<display-name>MenuParamSistemaServlet
+		</display-name>
+		<description>Su descripcion</description>
+		<servlet-class>es.portanode.servlets.MenuParamSistemaHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CambioOperadorSesion</servlet-name>
+		<display-name>CambioOperadorSesionServlet
+		</display-name>
+		<description>Su descripcion</description>
+		<servlet-class>es.portanode.servlets.CambioOperadorSesionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CambioGrupoSesion</servlet-name>
+		<display-name>CambioGrupoSesionServlet</display-name>
+		<description>Su descripcion</description>
+		<servlet-class>es.portanode.servlets.CambioGrupoSesionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioEnviarMsgInicio
+		</servlet-name>
+		<display-name>PrevioEnviarMsgInicioServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioEnviarMsgInicioHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GestionarMensajesErroneos
+		</servlet-name>
+		<display-name>GestionarMensajesErroneosServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.GestionarMensajesErroneos
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DetalleProceso</servlet-name>
+		<display-name>DetalleProcesoHandler
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.DetalleProcesoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DetalleHisProceso</servlet-name>
+		<display-name>DetalleHisProcesoHandler
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.DetalleHisProcesoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviarMsgSP</servlet-name>
+		<display-name>EnviarMsgSPServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.EnviarMsgSPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+        <servlet-name>EnviarMsgSP24</servlet-name>
+        <display-name>EnviarMsgSP24Servlet</display-name>
+        <description>Su xxxx</description>
+        <servlet-class>es.portanode.servlets.EnviarMsgSP24Handler
+        </servlet-class>
+    </servlet>
+	<servlet>
+		<servlet-name>EnviarMsgMn</servlet-name>
+		<display-name>EnviarMsgMnServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.EnviarMsgMnHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviarMsgNb</servlet-name>
+		<display-name>EnviarMsgNbServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.EnviarMsgNbHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviarMsgXNB</servlet-name>
+		<display-name>EnviarMsgXNBServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.EnviarMsgXNBHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviarMsgDIN</servlet-name>
+		<display-name>EnviarMsgDINServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.EnviarMsgDINHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviarMsgSNP</servlet-name>
+		<display-name>EnviarMsgSNPServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.EnviarMsgSNPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GenerarExcelTotal</servlet-name>
+		<display-name>GenerarExcelTotalServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.GenerarExcelTotalHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GenerarExcelSimple</servlet-name>
+		<display-name>GenerarExcelSimpleServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.GenerarExcelSimpleHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaCNC</servlet-name>
+		<display-name>PrevioConsultaCNCServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaCNCHandler
+		</servlet-class>
+	</servlet>
+	<!--
+		Añadido para la cancelación de una notificación de baja 31-julio-2009
+	-->
+	<servlet>
+		<servlet-name>PrevioCancelacionBaja
+		</servlet-name>
+		<display-name>PrevioCancelacionBajaServlet
+		</display-name>
+		<description>Para cancelar una baja</description>
+		<servlet-class>es.portanode.servlets.PrevioCancelacionBajaHandler
+		</servlet-class>
+	</servlet>
+
+	<!-- Fin de añadido -->
+	<servlet>
+		<servlet-name>PrevioEnviarMsgCNC</servlet-name>
+		<display-name>PrevioEnviarMsgCNCServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioEnviarMsgCNCHandler
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>EnviarMsgCNC</servlet-name>
+		<display-name>EnviarMsgCNCServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.EnviarMsgCNCHandler
+		</servlet-class>
+	</servlet>
+	
+		<servlet>
+		<servlet-name>AdquisicionTotalAdministrador</servlet-name>
+		<display-name>AdquisicionTotalAdministradorServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.AdquisicionTotalAdministradorHandler
+		</servlet-class>
+	</servlet>
+
+	<!-- Añadido para la cancelacion de una baja
+  14-agosto-2009 -->
+	<servlet>
+		<servlet-name>CancelarBaja</servlet-name>
+		<display-name>CancelarBajaServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.CancelarBajaHandler
+		</servlet-class>
+	</servlet>
+
+	<!-- Fin de añadido -->
+
+
+	<servlet>
+		<servlet-name>PrevioConsultaCNM</servlet-name>
+		<display-name>PrevioConsultaCNMServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaCNMHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaSP</servlet-name>
+		<display-name>PrevioConsultaSPServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaSPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RespuestaSP</servlet-name>
+		<display-name>RespuestaSPServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.RespuestaSPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RespuestaProceso</servlet-name>
+		<display-name>RespuestaProcesoServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.RespuestaProcesoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ResponderMsgSP</servlet-name>
+		<display-name>ResponderMsgSPServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ResponderMsgSPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DenegarMsgSP</servlet-name>
+		<display-name>DenegarMsgSPServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.DenegarMsgSPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ResponderMsgSPMultiple
+		</servlet-name>
+		<display-name>ResponderMsgSPMultipleServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ResponderMsgSPMultipleHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaASP</servlet-name>
+		<display-name>PrevioConsultaASPServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaASPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ResponderMsgASPMultiple
+		</servlet-name>
+		<display-name>ResponderMsgASPMultipleServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ResponderMsgASPMultipleHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RespuestaASP</servlet-name>
+		<display-name>RespuestaASPServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.RespuestaASPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ResponderMsgASP</servlet-name>
+		<display-name>ResponderMsgASPServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ResponderMsgASPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaPorNumero
+		</servlet-name>
+		<display-name>PrevioConsultaPorNumeroServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaPorNumeroHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaMensaje
+		</servlet-name>
+		<display-name>PrevioConsultaMensajeServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaMensajeHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaSimple</servlet-name>
+		<display-name>PrevioConsultaSimpleServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaSimpleHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaHisProceso
+		</servlet-name>
+		<display-name>PrevioConsultaHisProcesoServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaHisProcesoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaHisMensaje
+		</servlet-name>
+		<display-name>PrevioConsultaHisMensajeServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaHisMensajeHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GenerarExcelMensajes</servlet-name>
+		<display-name>GenerarExcelMensajesServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.GenerarExcelMensajesHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaHisNotificacion
+		</servlet-name>
+		<display-name>PrevioConsultaHisNotificacionServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.PrevioConsultaHisNotificacionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaHisProcExpirado
+		</servlet-name>
+		<display-name>PrevioConsultaHisProcExpiradoServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.PrevioConsultaHisProcExpiradoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaUsuario
+		</servlet-name>
+		<display-name>PrevioConsultaUsuarioServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaUsuarioHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaAbiertos
+		</servlet-name>
+		<display-name>PrevioConsultaAbiertosServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaAbiertosHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaAbiertos</servlet-name>
+		<display-name>ConsultaAbiertosServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ConsultaAbiertosHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioEnviarMsgCNM</servlet-name>
+		<display-name>PrevioEnviarMsgCNMServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioEnviarMsgCNMHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviarMsgCNM</servlet-name>
+		<display-name>EnviarMsgCNMServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.EnviarMsgCNMHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaRP</servlet-name>
+		<display-name>PrevioConsultaRPServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaRPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioEnviarMsgRP</servlet-name>
+		<display-name>PrevioEnviarMsgRPServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioEnviarMsgRPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviarMsgRP</servlet-name>
+		<display-name>EnviarMsgRPServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.EnviarMsgRPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaCPR</servlet-name>
+		<display-name>PrevioConsultaCPR</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaCPRHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioEnviarMsgCPR</servlet-name>
+		<display-name>PrevioEnviarMsgCPRServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioEnviarMsgCPRHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviarMsgCPR</servlet-name>
+		<display-name>EnviarMsgCPRServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.EnviarMsgCPRHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioEnviarMsgSPBis</servlet-name>
+		<display-name>PrevioEnviarMsgSPBisServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioEnviarMsgSPBisHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioEnviarMsgMNBis</servlet-name>
+		<display-name>PrevioEnviarMsgMNBisServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioEnviarMsgMNBisHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMenuMantenimientoSistema
+		</servlet-name>
+		<display-name>PrevioMenuMantenimientoSistemaServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.PrevioMenuMantenimientoSistemaHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMantenimientoOperador
+		</servlet-name>
+		<display-name>PrevioMantenimientoOperadorServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.PrevioMantenimientoOperadorHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoOperador
+		</servlet-name>
+		<display-name>MantenimientoOperadorServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.MantenimientoOperadorHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaOperador</servlet-name>
+		<display-name>AltaOperadorServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.AltaOperadorHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificarOperador</servlet-name>
+		<display-name>ModificarOperadorServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ModificarOperadorHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaOperador</servlet-name>
+		<display-name>BajaOperadorServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.BajaOperadorHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMantParamPropios
+		</servlet-name>
+		<display-name>PrevioMantParamPropiosServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioMantParamPropiosHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMantParamGeneral
+		</servlet-name>
+		<display-name>PrevioMantParamGeneralServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioMantParamGeneralHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaTotal</servlet-name>
+		<display-name>ConsultaTotalServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ConsultaTotalHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaExpirados</servlet-name>
+		<display-name>ConsultaExpiradosServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ConsultaExpiradosHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaHisUsuario</servlet-name>
+		<display-name>ConsultaHisUsuarioServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ConsultaHisUsuarioHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionParamPropios
+		</servlet-name>
+		<display-name>ModificacionParamPropiosServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ModificacionParamPropiosHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionParamGeneral
+		</servlet-name>
+		<display-name>ModificacionParamGeneralServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ModificacionParamGeneralHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionNotificacion
+		</servlet-name>
+		<display-name>ModificacionNotificacionServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ModificacionNotificacionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMantenimientoContacto
+		</servlet-name>
+		<display-name>PrevioMantenimientoContactoServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.PrevioMantenimientoContactoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoPersonaContacto
+		</servlet-name>
+		<display-name>MantenimientoPersonaContactoServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.MantenimientoPersonaContactoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaPersonaContacto</servlet-name>
+		<display-name>AltaPersonaContactoServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.AltaPersonaContactoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionPersonaContacto
+		</servlet-name>
+		<display-name>ModificacionPersonaContactoServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.ModificacionPersonaContactoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaPersonaContacto</servlet-name>
+		<display-name>BajaPersonaContactoServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.BajaPersonaContactoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaNRN</servlet-name>
+		<display-name>BajaNRNServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.BajaNRNHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMantenimientoNotificacion
+		</servlet-name>
+		<display-name>PrevioMantenimientoNotificacionServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.PrevioMantenimientoNotificacionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoNotificacion
+		</servlet-name>
+		<display-name>MantenimientoNotificacionServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.MantenimientoNotificacionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaNotificacion</servlet-name>
+		<display-name>AltaNotificacionServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.AltaNotificacionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaNotificacion</servlet-name>
+		<display-name>BajaNotificacionServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.BajaNotificacionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMantenimientoRangoNumeracion
+		</servlet-name>
+		<display-name>PrevioMantenimientoRangoNumeracionServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.PrevioMantenimientoRangoNumeracionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoRangoNumeracion
+		</servlet-name>
+		<display-name>MantenimientoRangoNumeracionServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.MantenimientoRangoNumeracionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaRangoNumeracion</servlet-name>
+		<display-name>AltaRangoNumeracionServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.AltaRangoNumeracionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionRangoNumeracion
+		</servlet-name>
+		<display-name>ModificacionRangoNumeracionServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.ModificacionRangoNumeracionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaRangoNumeracion</servlet-name>
+		<display-name>BajaRangoNumeracionServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.BajaRangoNumeracionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMantenimientoNRN
+		</servlet-name>
+		<display-name>PrevioMantenimientoNRNServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioMantenimientoNRNHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMantenimientoMultiplesNRN
+		</servlet-name>
+		<display-name>PrevioMantenimientoMultiplesServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.PrevioMantenimientoMultiplesHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoNRN</servlet-name>
+		<display-name>MantenimientoNRNServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.MantenimientoNRNHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaNRN</servlet-name>
+		<display-name>AltaNRNServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.AltaNRNHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionNRN</servlet-name>
+		<display-name>ModificacionNRNServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ModificacionNRNHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoRangoNRN
+		</servlet-name>
+		<display-name>MantenimientoRangoNRNServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.MantenimientoRangoNRNHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMantenimientoFestivo
+		</servlet-name>
+		<display-name>PrevioMantenimientoFestivoServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.PrevioMantenimientoFestivoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoFestivo</servlet-name>
+		<display-name>MantenimientoFestivoServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.MantenimientoFestivoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaFestivo</servlet-name>
+		<display-name>AltaFestivoServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.AltaFestivoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaFestivo</servlet-name>
+		<display-name>BajaFestivoServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.BajaFestivoHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioMantenimientoTemporizador
+		</servlet-name>
+		<display-name>PrevioMantenimientoTemporizadorServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>
+			es.portanode.servlets.PrevioMantenimientoTemporizadorHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoTemporizador
+		</servlet-name>
+		<display-name>MantenimientoTemporizadorServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.MantenimientoTemporizadorHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>obtenDetalleMensaje</servlet-name>
+		<display-name>obtenDetalleMensajeServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.obtenDetalleMensajeHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>obtenDetalleHisMensaje
+		</servlet-name>
+		<display-name>obtenDetalleHisMensajeServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.obtenDetalleHisMensajeHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionTemporizador
+		</servlet-name>
+		<display-name>ModificacionTemporizadorServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ModificacionTemporizadorHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaBDR</servlet-name>
+		<display-name>PrevioConsultaBDRServlet
+		</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaBDRHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultarBDR</servlet-name>
+		<display-name>ConsultarBDRServlet</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.ConsultarBDRHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PrevioConsultaPortabilidades</servlet-name>
+		<display-name>PrevioConsultaPortabilidades</display-name>
+		<description>Su xxxx</description>
+		<servlet-class>es.portanode.servlets.PrevioConsultaPortabilidadesHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaPortabilidadesJSP</servlet-name>
+		<display-name>ConsultaPortabilidadesJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaPortabilidadesRealizadas.jsp</jsp-file>
+	</servlet>
+
+
+	<!-- .........AȘadido........ -->
+	<servlet>
+		<servlet-name>ValidarUsuario</servlet-name>
+		<display-name>ValidarUsuario</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.ValidarHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ComprobarSesion</servlet-name>
+		<display-name>ComprobarSesion</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.ComprobarSesionHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AccionUsuarios</servlet-name>
+		<display-name>AccionUsuariosServlet
+		</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.AccionUsuariosHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CambioEnUsuario</servlet-name>
+		<display-name>CambioEnUsuarioServlet
+		</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.CambioEnUsuarioHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UploadFichero</servlet-name>
+		<display-name>UploadFichero</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.UploadFicheroHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SolicitudesPendientes</servlet-name>
+		<display-name>SolicitudesPendientes</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.SolicitudesPendientesHandler</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CancelacionesPendientes</servlet-name>
+		<display-name>CancelacionesPendientes</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.CancelacionesPendientesHandler</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BajasPendientes</servlet-name>
+		<display-name>BajasPendientes</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.BajasPendientesHandler</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DetalleSP</servlet-name>
+		<display-name>DetalleSP</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.DetalleSPHandler
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EliminarSolicitud</servlet-name>
+		<display-name>EliminarSolicitud</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.EliminarSolicitudHandler</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EliminarCancelacion</servlet-name>
+		<display-name>EliminarCancelacion</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.EliminarCancelacionHandler</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EliminarBaja</servlet-name>
+		<display-name>EliminarBaja</display-name>
+		<description>Su Descripcion</description>
+		<servlet-class>es.portanode.servlets.EliminarBajaHandler</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SalirAplicacion</servlet-name>
+		<display-name>SalirAplicacion</display-name>
+		<description>Salimos de la aplicacion</description>
+		<servlet-class>es.portanode.servlets.SalirHandler
+		</servlet-class>
+	</servlet>
+
+	<!--...................................... -->
+	<servlet>
+		<servlet-name>UploadFicheroJSP</servlet-name>
+		<display-name>UploadFicheroJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/UploadFichero.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>DetalleProcesoJSP</servlet-name>
+		<display-name>DetalleProcesoJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/DetalleProceso.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>DetalleHisProcesoJSP</servlet-name>
+		<display-name>DetalleHisProcesoJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/DetalleHisProceso.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EfectuarAltaOperadorERJSP
+		</servlet-name>
+		<display-name>EfectuarAltaOperadorERJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EfectuarAltaOperadorER.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaOperadorERJSP</servlet-name>
+		<display-name>AltaOperadorERJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/AltaOperadorER.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>SolicitudesPendientesJSP</servlet-name>
+		<display-name>SolicitudesPendientesJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/SolicitudesPendientes.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>CancelacionesPendientesJSP</servlet-name>
+		<display-name>CancelacionesPendientesJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/CancelacionesPendientes.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>BajasPendientesJSP</servlet-name>
+		<display-name>BajasPendientesJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/BajasPendientes.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaNotificacionesJSP
+		</servlet-name>
+		<display-name>ConsultaNotificacionesJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaNotificaciones.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>AutenticacionJSP</servlet-name>
+		<display-name>AutenticacionJSP</display-name>
+		<description>Pagina jsp para validarse como usuario
+		</description>
+		<jsp-file>/Autenticacion.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MenuRolDonanteJSP</servlet-name>
+		<display-name>MenuRolDonanteJSP</display-name>
+		<description>Pagina jsp con el menu donante</description>
+		<jsp-file>/MenuRolDonante.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MenuRolReceptorJSP</servlet-name>
+		<display-name>MenuRolReceptorJSP</display-name>
+		<description>Pagina jsp con el menu receptor</description>
+		<jsp-file>/MenuRolReceptor.jsp</jsp-file>
+	</servlet>
+		<servlet>
+		<servlet-name>MenuMantenimientoSistemaJSP</servlet-name>
+		<display-name>MenuMantenimientoSistemaJSP</display-name>
+		<description>Pagina jsp con el menu receptor</description>
+		<jsp-file>/MenuMantenimientoSistema.jsp</jsp-file>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>MenuOtrosMensajesJSP</servlet-name>
+		<display-name>MenuOtrosMensajesJSP</display-name>
+		<description>Pagina jsp con el menu otros mensajes</description>
+		<jsp-file>/MenuOtrosMensajes.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoUsuariosJSP
+		</servlet-name>
+		<display-name>MantenimientoUsuariosJSP
+		</display-name>
+		<description>Pagina jsp para mantener usuarios</description>
+		<jsp-file>/MantenimientoUsuarios.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificarUsuarioJSP</servlet-name>
+		<display-name>ModificarUsuarioJSP</display-name>
+		<description>Pagina jsp para mantener usuarios</description>
+		<jsp-file>/ModificarUsuario.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>CreaUsuarioJSP</servlet-name>
+		<display-name>CreaUsuarioJSP</display-name>
+		<description>Pagina jsp para mantener usuarios</description>
+		<jsp-file>/CreaUsuario.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>BorraUsuarioJSP</servlet-name>
+		<display-name>BorraUsuarioJSP</display-name>
+		<description>Pagina jsp para mantener usuarios</description>
+		<jsp-file>/BorraUsuario.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MostrarResultadoJSP</servlet-name>
+		<display-name>MostrarResultadoJSP</display-name>
+		<description>Pagina jsp para mostar mensajes</description>
+		<jsp-file>/MostrarResultado.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ResultadoCerrarJSP</servlet-name>
+		<display-name>ResultadoCerrarJSP</display-name>
+		<description>pagina jsp con el resultado del cierre de los
+			procesos cerrados</description>
+		<jsp-file>/ResultadoCerrar.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>PopUp</servlet-name>
+		<jsp-file>/PopUp.jsp</jsp-file>
+	</servlet>
+
+	<!--.......................................-->
+	<servlet>
+		<servlet-name>MenuPrincipalJSP</servlet-name>
+		<display-name>MenuPrincipalJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MenuPrincipal.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>PruebaJSP</servlet-name>
+		<display-name>PruebaJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/Prueba.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaFestivoJSP</servlet-name>
+		<display-name>AltaFestivoJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/AltaFestivo.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaNRNJSP</servlet-name>
+		<display-name>AltaNRNJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/AltaNRN.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaOperadorJSP</servlet-name>
+		<display-name>AltaOperadorJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/AltaOperador.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaPersonaContactoJSP
+		</servlet-name>
+		<display-name>AltaPersonaContactoJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/AltaPersonaContacto.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaRangoNumeracionJSP
+		</servlet-name>
+		<display-name>AltaRangoNumeracionJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/AltaRangoNumeracion.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaFestivoJSP</servlet-name>
+		<display-name>BajaFestivoJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/BajaFestivo.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaNotificadoJSP</servlet-name>
+		<display-name>BajaNotificadoJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/BajaNotificado.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaNRNJSP</servlet-name>
+		<display-name>BajaNRNJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/BajaNRN.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaOperadorJSP</servlet-name>
+		<display-name>BajaOperadorJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/BajaOperador.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaPersonaContactoJSP
+		</servlet-name>
+		<display-name>BajaPersonaContactoJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/BajaPersonaContacto.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaRangoNumeracionJSP
+		</servlet-name>
+		<display-name>BajaRangoNumeracionJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/BajaRangoNumeracion.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>CabeceraJSP</servlet-name>
+		<display-name>CabeceraJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/Cabecera.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>Cabecera2JSP</servlet-name>
+		<display-name>Cabecera2JSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/Cabecera2.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>Cabecera3JSP</servlet-name>
+		<display-name>Cabecera3JSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/Cabecera3.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>Cabecera4JSP</servlet-name>
+		<display-name>Cabecera4JSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/Cabecera4.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>CabeceraErrorJSP</servlet-name>
+		<display-name>CabeceraErrorJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/CabeceraError.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>CabeceraMenuJSP</servlet-name>
+		<display-name>CabeceraMenuJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/CabeceraMenu.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MostrarProcesoACerrarJSP
+		</servlet-name>
+		<display-name>MostrarProcesoACerrarJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MostrarProcesoACerrar.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EjecutarCerrarProcesoJSP
+		</servlet-name>
+		<display-name>EjecutarCerrarProcesoJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EjecutarCerrarProceso.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>CerrarProcesoCambioJSP
+		</servlet-name>
+		<display-name>CerrarProcesoCambioJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/CerrarProcesoCambio.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidarProcesoJSP</servlet-name>
+		<display-name>ValidarProcesoJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ValidarProceso.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConexionesAbiertasJSP
+		</servlet-name>
+		<display-name>ConexionesAbiertasJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConexionesAbiertas.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaAbiertosJSP</servlet-name>
+		<display-name>ConsultaAbiertosJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaAbiertos.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaPorNumeroJSP</servlet-name>
+		<display-name>ConsultaPorNumeroJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/consultaPorNumero.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaMensajesJSP</servlet-name>
+		<display-name>ConsultaMensajesJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultarMensajes.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaHisMensajesJSP
+		</servlet-name>
+		<display-name>ConsultaHisMensajesJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultarHisMensajes.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaHisNotificacionesJSP
+		</servlet-name>
+		<display-name>ConsultaHisNotificacionesJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaHisNotificaciones.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaSimpleJSP</servlet-name>
+		<display-name>ConsultaSimpleJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaSimple.jsp</jsp-file>
+	</servlet>
+    <servlet>
+		<servlet-name>mensajesErroneosJSP
+		</servlet-name>
+		<display-name>mensajesErroneosJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/mensajesErroneos.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaHisProcesoJSP
+		</servlet-name>
+		<display-name>ConsultaHisProcesoJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaHisProceso.jsp</jsp-file>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AdquisicionTotalAdministradorJSP</servlet-name>
+		<display-name>AdquisicionTotalAdministradorJSP</display-name>
+		<description>Pagina que informa de si se ha realizado el proceso de adquisicion total</description>
+		<jsp-file>/AdquisicionTotalAdministrador.jsp</jsp-file>
+	</servlet>
+	
+
+	<!-- Añadido para gestionar cancelación de baja 
+  31-julio-2009
+  -->
+	<!-- Fin añadido -->
+	<servlet>
+		<servlet-name>ConsultaXNBJSP</servlet-name>
+		<display-name>ConsultaXNBJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaXNB.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaASPJSP</servlet-name>
+		<display-name>ConsultaASPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaASP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultarBDRJSP</servlet-name>
+		<display-name>ConsultarBDRJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultarBDR.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaCNCJSP</servlet-name>
+		<display-name>ConsultaCNCJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaCNC.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaCNMJSP</servlet-name>
+		<display-name>ConsultaCNMJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaCNM.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaCPRJSP</servlet-name>
+		<display-name>ConsultaCPRJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaCPR.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaOperadoresERJSP
+		</servlet-name>
+		<display-name>ConsultaOperadoresERJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaOperadoresER.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EfectuarModificacionOperadorERJSP
+		</servlet-name>
+		<display-name>EfectuarModificacionOperadorERJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EfectuarModificacionOperadorER.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionOperadorERJSP
+		</servlet-name>
+		<display-name>ModificacionOperadorERJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ModificacionOperadorER.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EfectuarBajaOperadorERJSP
+		</servlet-name>
+		<display-name>EfectuarBajaOperadorERJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EfectuarBajaOperadorER.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>BajaOperadorERJSP</servlet-name>
+		<display-name>BajaOperadorERJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/BajaOperadorER.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaRPJSP</servlet-name>
+		<display-name>ConsultaRPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaRP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaSPJSP</servlet-name>
+		<display-name>ConsultaSPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaSP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviaCNCJSP</servlet-name>
+		<display-name>EnviaCNCJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnviaCNC.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviaCNMJSP</servlet-name>
+		<display-name>EnviaCNMJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnviaCNM.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviaDinJSP</servlet-name>
+		<display-name>EnviaDinJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnviaDin.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviaMNJSP</servlet-name>
+		<display-name>EnviaMNJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnviaMN.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviaNBJSP</servlet-name>
+		<display-name>EnviaNBJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnviaNB.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviaRPJSP</servlet-name>
+		<display-name>EnviaRPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnviaRP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviaSNPJSP</servlet-name>
+		<display-name>EnviaSNPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnviaSNP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnviaSPJSP</servlet-name>
+		<display-name>EnviaSPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnviaSP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeCNCJSP</servlet-name>
+		<display-name>EnvioMensajeCNCJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeCNC.jsp</jsp-file>
+	</servlet>
+
+	<servlet>
+		<servlet-name>EnvioMensajeCNMJSP</servlet-name>
+		<display-name>EnvioMensajeCNMJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeCNM.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeCprJSP</servlet-name>
+		<display-name>EnvioMensajeCprJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeCpr.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeDINJSP</servlet-name>
+		<display-name>EnvioMensajeDINJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeDIN.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeMnJSP</servlet-name>
+		<display-name>EnvioMensajeMnJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeMn.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeNbJSP</servlet-name>
+		<display-name>EnvioMensajeNbJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeNb.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeRPJSP</servlet-name>
+		<display-name>EnvioMensajeRPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeRP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeSNPJSP</servlet-name>
+		<display-name>EnvioMensajeSNPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeSNP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeSNPRangosJSP</servlet-name>
+		<display-name>EnvioMensajeSNPRangosJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeSNPRangos.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeSPJSP</servlet-name>
+		<display-name>EnvioMensajeSPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeSP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ReenvioMensajeSPJSP</servlet-name>
+		<display-name>ReenvioMensajeSPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ReenvioMensajeSP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ReenvioMensajeMNJSP</servlet-name>
+		<display-name>ReenvioMensajeMNJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ReenvioMensajeMN.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ReenvioMensajeCNMJSP</servlet-name>
+		<display-name>ReenvioMensajeCNMJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ReenvioMensajeCNM.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ReenvioMensajeNBJSP</servlet-name>
+		<display-name>ReenvioMensajeNBJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ReenvioMensajeNB.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ReenvioMensajeASPJSP</servlet-name>
+		<display-name>ReenvioMensajeASPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ReenvioMensajeASP.jsp</jsp-file>
+	</servlet>
+		<servlet>
+		<servlet-name>ReenvioMensajeDSP2JSP</servlet-name>
+		<display-name>ReenvioMensajeDSP2JSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ReenvioMensajeDSP2.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ReenvioMensajeCNCJSP</servlet-name>
+		<display-name>ReenvioMensajeCNCJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ReenvioMensajeCNC.jsp</jsp-file>
+	</servlet>
+		<servlet>
+		<servlet-name>ReenvioMensajeSNPJSP</servlet-name>
+		<display-name>ReenvioMensajeSNPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ReenvioMensajeSNP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ReenvioMensajeDINJSP</servlet-name>
+		<display-name>ReenvioMensajeDINJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ReenvioMensajeDIN.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeSPFicheroJSP</servlet-name>
+		<display-name>EnvioMensajeSPFicheroJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeSPFichero.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeCNCFicheroJSP</servlet-name>
+		<display-name>EnvioMensajeCNCFicheroJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeCNCFichero.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeNBFicheroJSP</servlet-name>
+		<display-name>EnvioMensajeNBFicheroJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeNBFichero.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeASPFicheroJSP</servlet-name>
+		<display-name>EnvioMensajeASPFicheroJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeASPFichero.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMensajeDSP2FicheroJSP</servlet-name>
+		<display-name>EnvioMensajeDSP2FicheroJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMensajeDSP2Fichero.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>EnvioMsgMNJSP</servlet-name>
+		<display-name>EnvioMsgMNJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/EnvioMsgMN.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ErrorSessionJSP</servlet-name>
+		<display-name>ErrorSessionJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ErrorSession.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoFestivosJSP
+		</servlet-name>
+		<display-name>MantenimientoFestivosJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MantenimientoFestivos.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoNotificadosJSP
+		</servlet-name>
+		<display-name>MantenimientoNotificadosJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MantenimientoNotificados.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoNRNJSP</servlet-name>
+		<display-name>MantenimientoNRNJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MantenimientoNRN.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoMultiplesNRNJSP
+		</servlet-name>
+		<display-name>MantenimientoMultiplesNRNJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MantenimientoMultiplesNRN.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoOperadorJSP
+		</servlet-name>
+		<display-name>MantenimientoOperadorJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MantenimientoOperador.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoPersonaContactoJSP
+		</servlet-name>
+		<display-name>MantenimientoPersonaContactoJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MantenimientoPersonaContacto.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoRangosNumeracionJSP
+		</servlet-name>
+		<display-name>MantenimientoRangosNumeracionJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MantenimientoRangosNumeracion.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantenimientoTemporizadorJSP
+		</servlet-name>
+		<display-name>MantenimientoTemporizadorJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MantenimientoTemporizador.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantParamPropiosJSP</servlet-name>
+		<display-name>MantParamPropiosJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MantParamPropios.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MantParamGeneralJSP</servlet-name>
+		<display-name>MantParamGeneralJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MantParamGeneral.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MensajesDenegacionJSP
+		</servlet-name>
+		<display-name>MensajesDenegacionJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MensajesDenegacion.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>MenuParamSistemaJSP</servlet-name>
+		<display-name>MenuParamSistemaJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/MenuParamSistema.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionNotificadoJSP
+		</servlet-name>
+		<display-name>ModificacionNotificadoJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ModificacionNotificado.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>AltaNotificadoJSP</servlet-name>
+		<display-name>AltaNotificadoJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/AltaNotificado.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionNRNJSP</servlet-name>
+		<display-name>ModificacionNRNJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ModificacionNRN.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificacionOperadorJSP
+		</servlet-name>
+		<display-name>ModificacionOperadorJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ModificacionOperador.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificarPersonaContactoJSP
+		</servlet-name>
+		<display-name>ModificarPersonaContactoJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ModificarPersonaContacto.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificarRangosNumeracionJSP
+		</servlet-name>
+		<display-name>ModificarRangosNumeracionJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ModificarRangosNumeracion.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificarTemporizadorJSP
+		</servlet-name>
+		<display-name>ModificarTemporizadorJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ModificarTemporizador.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>obtenDetalleMensajeJSP
+		</servlet-name>
+		<display-name>obtenDetalleMensajeJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/obtenDetalleMensaje.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>NavegadorJSP</servlet-name>
+		<display-name>NavegadorJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/Navegador.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>RespuestaProcesoJSP</servlet-name>
+		<display-name>RespuestaProcesoJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/RespuestaProceso.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>RespuestaASPJSP</servlet-name>
+		<display-name>RespuestaASPJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/RespuestaASP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>RespuestaAceptacionSPJSP
+		</servlet-name>
+		<display-name>RespuestaAceptacionSPJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/RespuestaAceptacionSP.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>RespuestaDenegacionSPJSP
+		</servlet-name>
+		<display-name>RespuestaDenegacionSPJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/RespuestaDenegacionSP.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaTotalJSP</servlet-name>
+		<display-name>ConsultaTotalJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/Consulta.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaExpiradosJSP</servlet-name>
+		<display-name>ConsultaExpiradosJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaExpirados.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaHisExpiradosJSP
+		</servlet-name>
+		<display-name>ConsultaHisExpiradosJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaHisExpirados.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaHisUsuarioJSP
+		</servlet-name>
+		<display-name>ConsultaHisUsuarioJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaHisUsuario.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultaUsuarioJSP</servlet-name>
+		<display-name>ConsultaUsuarioJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ConsultaUsuario.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>VerExcelJSP</servlet-name>
+		<display-name>VerExcelJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/VerExcel.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidacionEntradaJSP</servlet-name>
+		<display-name>ValidacionEntradaJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ValidacionEntrada.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidacionEntrada2JSP
+		</servlet-name>
+		<display-name>ValidacionEntrada2JSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ValidacionEntrada2.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidacionEntradaFechaJSP
+		</servlet-name>
+		<display-name>ValidacionEntradaFechaJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ValidacionEntradaFecha.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidacionEntradaInicioJSP
+		</servlet-name>
+		<display-name>ValidacionEntradaInicioJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ValidacionEntradaInicio.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidacionEntradaNRNJSP
+		</servlet-name>
+		<display-name>ValidacionEntradaNRNJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ValidacionEntradaNRN.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidacionEntradaRPJSP
+		</servlet-name>
+		<display-name>ValidacionEntradaRPJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ValidacionEntradaRP.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidacionEntradaTituloJSP
+		</servlet-name>
+		<display-name>ValidacionEntradaTituloJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ValidacionEntradaTitulo.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidacionMsgIncorrectoJSP
+		</servlet-name>
+		<display-name>ValidacionMsgIncorrectoJSP
+		</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/ValidacionMsgIncorrecto.jsp
+		</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>DescargasLogsJSP</servlet-name>
+		<display-name>DescargasLogsJSP</display-name>
+		<description>Su Descripcion</description>
+		<jsp-file>/descargasLogs.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MenuPrincipal</servlet-name>
+		<url-pattern>/MenuPrincipal</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MenuRolReceptor</servlet-name>
+		<url-pattern>/MenuRolReceptor</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>MenuMantenimientoSistema</servlet-name>
+		<url-pattern>/MenuMantenimientoSistema</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MenuRolDonante</servlet-name>
+		<url-pattern>/MenuRolDonante</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MenuReenvioMensajes</servlet-name>
+		<url-pattern>/MenuReenvioMensajes</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>MenuOtrosMensajes</servlet-name>
+		<url-pattern>/MenuOtrosMensajes</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MenuParamSistema</servlet-name>
+		<url-pattern>/MenuParamSistema</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CambioOperadorSesion</servlet-name>
+		<url-pattern>/CambioOperadorSesion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CambioGrupoSesion</servlet-name>
+		<url-pattern>/CambioGrupoSesion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioEnviarMsgInicio
+		</servlet-name>
+		<url-pattern>/PrevioEnviarMsgInicio
+		</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>GestionarMensajesErroneos
+		</servlet-name>
+		<url-pattern>/GestionarMensajesErroneos
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DetalleProceso</servlet-name>
+		<url-pattern>/DetalleProceso</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DetalleHisProceso</servlet-name>
+		<url-pattern>/DetalleHisProceso</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviarMsgSP</servlet-name>
+		<url-pattern>/EnviarMsgSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>EnviarMsgSP24</servlet-name>
+        <url-pattern>/EnviarMsgSP24</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviarMsgMn</servlet-name>
+		<url-pattern>/EnviarMsgMn</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviarMsgNb</servlet-name>
+		<url-pattern>/EnviarMsgNb</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviarMsgXNB</servlet-name>
+		<url-pattern>/EnviarMsgXNB</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviarMsgDIN</servlet-name>
+		<url-pattern>/EnviarMsgDIN</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviarMsgSNP</servlet-name>
+		<url-pattern>/EnviarMsgSNP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GenerarExcelTotal</servlet-name>
+		<url-pattern>/GenerarExcelTotal</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GenerarExcelSimple</servlet-name>
+		<url-pattern>/GenerarExcelSimple</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaCNC</servlet-name>
+		<url-pattern>/PrevioConsultaCNC</url-pattern>
+	</servlet-mapping>
+
+	<!-- Añadido para la cancelacion de una baja -->
+
+	<servlet-mapping>
+		<servlet-name>PrevioCancelacionBaja
+		</servlet-name>
+		<url-pattern>/PrevioCancelacionBaja
+		</url-pattern>
+	</servlet-mapping>
+
+	<!-- Fin añadido -->
+
+	<servlet-mapping>
+		<servlet-name>PrevioEnviarMsgCNC</servlet-name>
+		<url-pattern>/PrevioEnviarMsgCNC</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>EnviarMsgCNC</servlet-name>
+		<url-pattern>/EnviarMsgCNC</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaCNM</servlet-name>
+		<url-pattern>/PrevioConsultaCNM</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaSP</servlet-name>
+		<url-pattern>/PrevioConsultaSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RespuestaSP</servlet-name>
+		<url-pattern>/RespuestaSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RespuestaProceso</servlet-name>
+		<url-pattern>/RespuestaProceso</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResponderMsgSP</servlet-name>
+		<url-pattern>/ResponderMsgSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DenegarMsgSP</servlet-name>
+		<url-pattern>/DenegarMsgSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResponderMsgSPMultiple
+		</servlet-name>
+		<url-pattern>/ResponderMsgSPMultiple
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaASP</servlet-name>
+		<url-pattern>/PrevioConsultaASP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResponderMsgASPMultiple
+		</servlet-name>
+		<url-pattern>/ResponderMsgASPMultiple
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RespuestaASP</servlet-name>
+		<url-pattern>/RespuestaASP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResponderMsgASP</servlet-name>
+		<url-pattern>/ResponderMsgASP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaPorNumero
+		</servlet-name>
+		<url-pattern>/PrevioConsultaPorNumero
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaMensaje
+		</servlet-name>
+		<url-pattern>/PrevioConsultaMensaje
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaSimple</servlet-name>
+		<url-pattern>/PrevioConsultaSimple</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaHisProceso
+		</servlet-name>
+		<url-pattern>/PrevioConsultaHisProceso
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdquisicionTotalAdministrador
+		</servlet-name>
+		<url-pattern>/AdquisicionTotalAdministrador</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdquisicionTotalAdministradorJSP
+		</servlet-name>
+		<url-pattern>/AdquisicionTotalAdministradorJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaHisMensaje
+		</servlet-name>
+		<url-pattern>/PrevioConsultaHisMensaje
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GenerarExcelMensajes</servlet-name>
+		<url-pattern>/GenerarExcelMensajes</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaHisNotificacion
+		</servlet-name>
+		<url-pattern>/PrevioConsultaHisNotificacion
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaHisProcExpirado
+		</servlet-name>
+		<url-pattern>/PrevioConsultaHisProcExpirado
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaUsuario
+		</servlet-name>
+		<url-pattern>/PrevioConsultaUsuario
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaAbiertos
+		</servlet-name>
+		<url-pattern>/PrevioConsultaAbiertos
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaAbiertos</servlet-name>
+		<url-pattern>/ConsultaAbiertos</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioEnviarMsgCNM</servlet-name>
+		<url-pattern>/PrevioEnviarMsgCNM</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviarMsgCNM</servlet-name>
+		<url-pattern>/EnviarMsgCNM</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaRP</servlet-name>
+		<url-pattern>/PrevioConsultaRP</url-pattern>
+	</servlet-mapping>
+    <servlet-mapping>
+		<servlet-name>mensajesErroneosJSP
+		</servlet-name>
+		<url-pattern>/mensajesErroneosJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioEnviarMsgRP</servlet-name>
+		<url-pattern>/PrevioEnviarMsgRP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviarMsgRP</servlet-name>
+		<url-pattern>/EnviarMsgRP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaCPR</servlet-name>
+		<url-pattern>/PrevioConsultaCPR</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioEnviarMsgCPR</servlet-name>
+		<url-pattern>/PrevioEnviarMsgCPR</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviarMsgCPR</servlet-name>
+		<url-pattern>/EnviarMsgCPR</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioEnviarMsgSPBis</servlet-name>
+		<url-pattern>/PrevioEnviarMsgSPBis</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioEnviarMsgMNBis</servlet-name>
+		<url-pattern>/PrevioEnviarMsgMNBis</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMenuMantenimientoSistema
+		</servlet-name>
+		<url-pattern>/PrevioMenuMantenimientoSistema
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMantenimientoOperador
+		</servlet-name>
+		<url-pattern>/PrevioMantenimientoOperador
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AccionUsuarios</servlet-name>
+		<url-pattern>/AccionUsuarios</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CambioEnUsuario</servlet-name>
+		<url-pattern>/CambioEnUsuario</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoOperador
+		</servlet-name>
+		<url-pattern>/MantenimientoOperador
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaOperador</servlet-name>
+		<url-pattern>/AltaOperador</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificarOperador</servlet-name>
+		<url-pattern>/ModificarOperador</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaOperador</servlet-name>
+		<url-pattern>/BajaOperador</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMantParamPropios
+		</servlet-name>
+		<url-pattern>/PrevioMantParamPropios
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMantParamGeneral
+		</servlet-name>
+		<url-pattern>/PrevioMantParamGeneral
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaTotal</servlet-name>
+		<url-pattern>/ConsultaTotal</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaExpirados</servlet-name>
+		<url-pattern>/ConsultaExpirados</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaHisUsuario</servlet-name>
+		<url-pattern>/ConsultaHisUsuario</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionParamPropios
+		</servlet-name>
+		<url-pattern>/ModificacionParamPropios
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionParamGeneral
+		</servlet-name>
+		<url-pattern>/ModificacionParamGeneral
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionNotificacion
+		</servlet-name>
+		<url-pattern>/ModificacionNotificacion
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMantenimientoContacto
+		</servlet-name>
+		<url-pattern>/PrevioMantenimientoContacto
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoPersonaContacto
+		</servlet-name>
+		<url-pattern>/MantenimientoPersonaContacto
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaPersonaContacto</servlet-name>
+		<url-pattern>/AltaPersonaContacto</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionPersonaContacto
+		</servlet-name>
+		<url-pattern>/ModificacionPersonaContacto
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaPersonaContacto</servlet-name>
+		<url-pattern>/BajaPersonaContacto</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMantenimientoNotificacion
+		</servlet-name>
+		<url-pattern>/PrevioMantenimientoNotificacion
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoNotificacion
+		</servlet-name>
+		<url-pattern>/MantenimientoNotificacion
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaNotificacion</servlet-name>
+		<url-pattern>/AltaNotificacion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaNotificacion</servlet-name>
+		<url-pattern>/BajaNotificacion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMantenimientoRangoNumeracion
+		</servlet-name>
+		<url-pattern>/PrevioMantenimientoRangoNumeracion
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoRangoNumeracion
+		</servlet-name>
+		<url-pattern>/MantenimientoRangoNumeracion
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaRangoNumeracion</servlet-name>
+		<url-pattern>/AltaRangoNumeracion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionRangoNumeracion
+		</servlet-name>
+		<url-pattern>/ModificacionRangoNumeracion
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaRangoNumeracion</servlet-name>
+		<url-pattern>/BajaRangoNumeracion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMantenimientoNRN
+		</servlet-name>
+		<url-pattern>/PrevioMantenimientoNRN
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMantenimientoMultiplesNRN
+		</servlet-name>
+		<url-pattern>/PrevioMantenimientoMultiplesNRN
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoNRN</servlet-name>
+		<url-pattern>/MantenimientoNRN</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaNRN</servlet-name>
+		<url-pattern>/AltaNRN</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionNRN</servlet-name>
+		<url-pattern>/ModificacionNRN</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoRangoNRN
+		</servlet-name>
+		<url-pattern>/MantenimientoRangoNRN
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMantenimientoFestivo
+		</servlet-name>
+		<url-pattern>/PrevioMantenimientoFestivo
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoFestivo</servlet-name>
+		<url-pattern>/MantenimientoFestivo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaFestivo</servlet-name>
+		<url-pattern>/AltaFestivo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioMantenimientoTemporizador
+		</servlet-name>
+		<url-pattern>/PrevioMantenimientoTemporizador
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoTemporizador
+		</servlet-name>
+		<url-pattern>/MantenimientoTemporizador
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>obtenDetalleMensaje</servlet-name>
+		<url-pattern>/obtenDetalleMensaje</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>obtenDetalleHisMensaje
+		</servlet-name>
+		<url-pattern>/obtenDetalleHisMensaje
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionTemporizador
+		</servlet-name>
+		<url-pattern>/ModificacionTemporizador
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AutenticacionJSP</servlet-name>
+		<url-pattern>/AutenticacionJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MenuRolDonanteJSP</servlet-name>
+		<url-pattern>/MenuRolDonanteJSP</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>MenuRolReceptorJSP</servlet-name>
+		<url-pattern>/MenuRolReceptorJSP</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>MenuMantenimientoSistemaJSP</servlet-name>
+		<url-pattern>/MenuMantenimientoSistemaJSP</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>MenuOtrosMensajesJSP</servlet-name>
+		<url-pattern>/MenuOtrosMensajesJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MenuParamSistemaJSP</servlet-name>
+		<url-pattern>/MenuParamSistemaJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoUsuariosJSP
+		</servlet-name>
+		<url-pattern>/MantenimientoUsuariosJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificarUsuarioJSP</servlet-name>
+		<url-pattern>/ModificarUsuarioJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreaUsuarioJSP</servlet-name>
+		<url-pattern>/CreaUsuarioJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BorraUsuarioJSP</servlet-name>
+		<url-pattern>/BorraUsuarioJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MostrarResultadoJSP</servlet-name>
+		<url-pattern>/MostrarResultadoJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MenuPrincipalJSP</servlet-name>
+		<url-pattern>/MenuPrincipalJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaFestivoJSP</servlet-name>
+		<url-pattern>/AltaFestivoJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaNRNJSP</servlet-name>
+		<url-pattern>/AltaNRNJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaOperadorJSP</servlet-name>
+		<url-pattern>/AltaOperadorJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaPersonaContactoJSP
+		</servlet-name>
+		<url-pattern>/AltaPersonaContactoJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PruebaJSP</servlet-name>
+		<url-pattern>/PruebaJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaRangoNumeracionJSP
+		</servlet-name>
+		<url-pattern>/AltaRangoNumeracionJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaFestivoJSP</servlet-name>
+		<url-pattern>/BajaFestivoJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaNotificadoJSP</servlet-name>
+		<url-pattern>/BajaNotificadoJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaNRNJSP</servlet-name>
+		<url-pattern>/BajaNRNJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaNRN</servlet-name>
+		<url-pattern>/BajaNRN</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaOperadorJSP</servlet-name>
+		<url-pattern>/BajaOperadorJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaPersonaContactoJSP
+		</servlet-name>
+		<url-pattern>/BajaPersonaContactoJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaRangoNumeracionJSP
+		</servlet-name>
+		<url-pattern>/BajaRangoNumeracionJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CabeceraJSP</servlet-name>
+		<url-pattern>/CabeceraJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Cabecera2JSP</servlet-name>
+		<url-pattern>/Cabecera2JSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Cabecera3JSP</servlet-name>
+		<url-pattern>/Cabecera3JSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Cabecera4JSP</servlet-name>
+		<url-pattern>/Cabecera4JSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CabeceraErrorJSP</servlet-name>
+		<url-pattern>/CabeceraErrorJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CabeceraMenuJSP</servlet-name>
+		<url-pattern>/CabeceraMenuJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MostrarProcesoACerrarJSP
+		</servlet-name>
+		<url-pattern>/MostrarProcesoACerrarJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EjecutarCerrarProcesoJSP
+		</servlet-name>
+		<url-pattern>/EjecutarCerrarProcesoJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CerrarProcesoCambioJSP
+		</servlet-name>
+		<url-pattern>/CerrarProcesoCambioJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidarProcesoJSP</servlet-name>
+		<url-pattern>/ValidarProcesoJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConexionesAbiertasJSP
+		</servlet-name>
+		<url-pattern>/ConexionesAbiertasJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaAbiertosJSP</servlet-name>
+		<url-pattern>/ConsultaAbiertosJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaPorNumeroJSP</servlet-name>
+		<url-pattern>/ConsultaPorNumeroJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaMensajesJSP</servlet-name>
+		<url-pattern>/ConsultaMensajesJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaHisMensajesJSP
+		</servlet-name>
+		<url-pattern>/ConsultaHisMensajesJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaHisNotificacionesJSP
+		</servlet-name>
+		<url-pattern>/ConsultaHisNotificacionesJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaSimpleJSP</servlet-name>
+		<url-pattern>/ConsultaSimpleJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaHisProcesoJSP
+		</servlet-name>
+		<url-pattern>/ConsultaHisProcesoJSP
+		</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ConsultaXNBJSP</servlet-name>
+		<url-pattern>/ConsultaXNBJSP</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ConsultaASPJSP</servlet-name>
+		<url-pattern>/ConsultaASPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaCNCJSP</servlet-name>
+		<url-pattern>/ConsultaCNCJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaCNMJSP</servlet-name>
+		<url-pattern>/ConsultaCNMJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaCPRJSP</servlet-name>
+		<url-pattern>/ConsultaCPRJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaOperadoresERJSP
+		</servlet-name>
+		<url-pattern>/ConsultaOperadoresERJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EfectuarModificacionOperadorERJSP
+		</servlet-name>
+		<url-pattern>/EfectuarModificacionOperadorERJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionOperadorERJSP
+		</servlet-name>
+		<url-pattern>/ModificacionOperadorERJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EfectuarBajaOperadorERJSP
+		</servlet-name>
+		<url-pattern>/EfectuarBajaOperadorERJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaOperadorERJSP</servlet-name>
+		<url-pattern>/BajaOperadorERJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaRPJSP</servlet-name>
+		<url-pattern>/ConsultaRPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaSPJSP</servlet-name>
+		<url-pattern>/ConsultaSPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviaCNCJSP</servlet-name>
+		<url-pattern>/EnviaCNCJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviaCNMJSP</servlet-name>
+		<url-pattern>/EnviaCNMJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviaDinJSP</servlet-name>
+		<url-pattern>/EnviaDinJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviaMNJSP</servlet-name>
+		<url-pattern>/EnviaMNJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviaNBJSP</servlet-name>
+		<url-pattern>/EnviaNBJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviaRPJSP</servlet-name>
+		<url-pattern>/EnviaRPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviaSNPJSP</servlet-name>
+		<url-pattern>/EnviaSNPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnviaSPJSP</servlet-name>
+		<url-pattern>/EnviaSPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeCNCJSP</servlet-name>
+		<url-pattern>/EnvioMensajeCNCJSP</url-pattern>
+	</servlet-mapping>
+
+	<!-- Añadido para cancelacion de una baja 
+  14 - agosto - 2009 -->
+	<servlet-mapping>
+		<servlet-name>CancelarBaja</servlet-name>
+		<url-pattern>/CancelarBaja</url-pattern>
+	</servlet-mapping>
+	<!-- Fin añadido -->
+
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeCNMJSP</servlet-name>
+		<url-pattern>/EnvioMensajeCNMJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeCprJSP</servlet-name>
+		<url-pattern>/EnvioMensajeCprJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeDINJSP</servlet-name>
+		<url-pattern>/EnvioMensajeDINJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeMnJSP</servlet-name>
+		<url-pattern>/EnvioMensajeMnJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeNbJSP</servlet-name>
+		<url-pattern>/EnvioMensajeNbJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeRPJSP</servlet-name>
+		<url-pattern>/EnvioMensajeRPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeSNPJSP</servlet-name>
+		<url-pattern>/EnvioMensajeSNPJSP</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>EnvioMensajeSNPRangosJSP</servlet-name>
+		<url-pattern>/EnvioMensajeSNPRangosJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeSPJSP</servlet-name>
+		<url-pattern>/EnvioMensajeSPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReenvioMensajeSPJSP</servlet-name>
+		<url-pattern>/ReenvioMensajeSPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReenvioMensajeMNJSP</servlet-name>
+		<url-pattern>/ReenvioMensajeMNJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReenvioMensajeCNMJSP</servlet-name>
+		<url-pattern>/ReenvioMensajeCNMJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReenvioMensajeNBJSP</servlet-name>
+		<url-pattern>/ReenvioMensajeNBJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReenvioMensajeASPJSP</servlet-name>
+		<url-pattern>/ReenvioMensajeASPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReenvioMensajeDSP2JSP</servlet-name>
+		<url-pattern>/ReenvioMensajeDSP2JSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReenvioMensajeCNCJSP</servlet-name>
+		<url-pattern>/ReenvioMensajeCNCJSP</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>ReenvioMensajeSNPJSP</servlet-name>
+		<url-pattern>/ReenvioMensajeSNPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReenvioMensajeDINJSP</servlet-name>
+		<url-pattern>/ReenvioMensajeDINJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeSPFicheroJSP</servlet-name>
+		<url-pattern>/EnvioMensajeSPFicheroJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeCNCFicheroJSP</servlet-name>
+		<url-pattern>/EnvioMensajeCNCFicheroJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeNBFicheroJSP</servlet-name>
+		<url-pattern>/EnvioMensajeNBFicheroJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeASPFicheroJSP</servlet-name>
+		<url-pattern>/EnvioMensajeASPFicheroJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMensajeDSP2FicheroJSP</servlet-name>
+		<url-pattern>/EnvioMensajeDSP2FicheroJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnvioMsgMNJSP</servlet-name>
+		<url-pattern>/EnvioMsgMNJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ErrorSessionJSP</servlet-name>
+		<url-pattern>/ErrorSessionJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoFestivosJSP
+		</servlet-name>
+		<url-pattern>/MantenimientoFestivosJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoNotificadosJSP
+		</servlet-name>
+		<url-pattern>/MantenimientoNotificadosJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoNRNJSP</servlet-name>
+		<url-pattern>/MantenimientoNRNJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoMultiplesNRNJSP
+		</servlet-name>
+		<url-pattern>/MantenimientoMultiplesNRNJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoOperadorJSP
+		</servlet-name>
+		<url-pattern>/MantenimientoOperadorJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoPersonaContactoJSP
+		</servlet-name>
+		<url-pattern>/MantenimientoPersonaContactoJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoRangosNumeracionJSP
+		</servlet-name>
+		<url-pattern>/MantenimientoRangosNumeracionJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantenimientoTemporizadorJSP
+		</servlet-name>
+		<url-pattern>/MantenimientoTemporizadorJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantParamPropiosJSP</servlet-name>
+		<url-pattern>/MantParamPropiosJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MantParamGeneralJSP</servlet-name>
+		<url-pattern>/MantParamGeneralJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MensajesDenegacionJSP
+		</servlet-name>
+		<url-pattern>/MensajesDenegacionJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionNotificadoJSP
+		</servlet-name>
+		<url-pattern>/ModificacionNotificadoJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaNotificadoJSP</servlet-name>
+		<url-pattern>/AltaNotificadoJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionNRNJSP</servlet-name>
+		<url-pattern>/ModificacionNRNJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificacionOperadorJSP
+		</servlet-name>
+		<url-pattern>/ModificacionOperadorJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificarPersonaContactoJSP
+		</servlet-name>
+		<url-pattern>/ModificarPersonaContactoJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificarRangosNumeracionJSP
+		</servlet-name>
+		<url-pattern>/ModificarRangosNumeracionJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModificarTemporizadorJSP
+		</servlet-name>
+		<url-pattern>/ModificarTemporizadorJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>obtenDetalleMensajeJSP
+		</servlet-name>
+		<url-pattern>/obtenDetalleMensajeJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NavegadorJSP</servlet-name>
+		<url-pattern>/NavegadorJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RespuestaProcesoJSP</servlet-name>
+		<url-pattern>/RespuestaProcesoJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RespuestaASPJSP</servlet-name>
+		<url-pattern>/RespuestaASPJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RespuestaAceptacionSPJSP
+		</servlet-name>
+		<url-pattern>/RespuestaAceptacionSPJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RespuestaDenegacionSPJSP
+		</servlet-name>
+		<url-pattern>/RespuestaDenegacionSPJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidacionEntradaJSP</servlet-name>
+		<url-pattern>/ValidacionEntradaJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaTotalJSP</servlet-name>
+		<url-pattern>/ConsultaTotalJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaExpiradosJSP</servlet-name>
+		<url-pattern>/ConsultaExpiradosJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaHisExpiradosJSP
+		</servlet-name>
+		<url-pattern>/ConsultaHisExpiradosJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaHisUsuarioJSP
+		</servlet-name>
+		<url-pattern>/ConsultaHisUsuarioJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaUsuarioJSP</servlet-name>
+		<url-pattern>/ConsultaUsuarioJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidacionEntrada2JSP
+		</servlet-name>
+		<url-pattern>/ValidacionEntrada2JSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidacionEntradaFechaJSP
+		</servlet-name>
+		<url-pattern>/ValidacionEntradaFechaJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidacionEntradaInicioJSP
+		</servlet-name>
+		<url-pattern>/ValidacionEntradaInicioJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidacionEntradaNRNJSP
+		</servlet-name>
+		<url-pattern>/ValidacionEntradaNRNJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidacionEntradaRPJSP
+		</servlet-name>
+		<url-pattern>/ValidacionEntradaRPJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidacionEntradaTituloJSP
+		</servlet-name>
+		<url-pattern>/ValidacionEntradaTituloJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>VerExcelJSP</servlet-name>
+		<url-pattern>/VerExcelJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultarBDRJSP</servlet-name>
+		<url-pattern>/ConsultarBDRJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidacionMsgIncorrectoJSP
+		</servlet-name>
+		<url-pattern>/ValidacionMsgIncorrectoJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajaFestivo</servlet-name>
+		<url-pattern>/BajaFestivo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaBDR</servlet-name>
+		<url-pattern>/PrevioConsultaBDR</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultarBDR</servlet-name>
+		<url-pattern>/ConsultarBDR</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PrevioConsultaPortabilidades</servlet-name>
+		<url-pattern>/PrevioConsultaPortabilidades</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaPortabilidadesJSP</servlet-name>
+		<url-pattern>/ConsultaPortabilidadesJSP</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- ................AȘadido...................-->
+	<servlet-mapping>
+		<servlet-name>ValidarUsuario</servlet-name>
+		<url-pattern>/ValidarUsuario</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ComprobarSesion</servlet-name>
+		<url-pattern>/ComprobarSesion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UploadFichero</servlet-name>
+		<url-pattern>/UploadFichero</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UploadFicheroJSP</servlet-name>
+		<url-pattern>/UploadFicheroJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DetalleProcesoJSP</servlet-name>
+		<url-pattern>/DetalleProcesoJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DetalleHisProcesoJSP</servlet-name>
+		<url-pattern>/DetalleHisProcesoJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EfectuarAltaOperadorERJSP
+		</servlet-name>
+		<url-pattern>/EfectuarAltaOperadorERJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AltaOperadorERJSP</servlet-name>
+		<url-pattern>/AltaOperadorERJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SolicitudesPendientes</servlet-name>
+		<url-pattern>/SolicitudesPendientes</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SolicitudesPendientesJSP</servlet-name>
+		<url-pattern>/SolicitudesPendientesJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CancelacionesPendientes</servlet-name>
+		<url-pattern>/CancelacionesPendientes</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CancelacionesPendientesJSP</servlet-name>
+		<url-pattern>/CancelacionesPendientesJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajasPendientes</servlet-name>
+		<url-pattern>/BajasPendientes</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BajasPendientesJSP</servlet-name>
+		<url-pattern>/BajasPendientesJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DetalleSP</servlet-name>
+		<url-pattern>/DetalleSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultaNotificacionesJSP
+		</servlet-name>
+		<url-pattern>/ConsultaNotificacionesJSP
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EliminarSolicitud</servlet-name>
+		<url-pattern>/EliminarSolicitud</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EliminarCancelacion</servlet-name>
+		<url-pattern>/EliminarCancelacion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EliminarBaja</servlet-name>
+		<url-pattern>/EliminarBaja</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SalirAplicacion</servlet-name>
+		<url-pattern>/SalirAplicacion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PopUp</servlet-name>
+		<url-pattern>/PopUpJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DescargasLogsJSP</servlet-name>
+		<url-pattern>/DescargasLogsJSP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResultadoCerrarJSP</servlet-name>
+		<url-pattern>/ResultadoCerrarJSP</url-pattern>
+	</servlet-mapping>
+	<!-- ........................................-->
+	<session-config>
+		<session-timeout> 30 </session-timeout>
+	</session-config>
+
+
+	<!--MODULO PERFILES -->
+	<servlet>
+		<servlet-name>getPass</servlet-name>
+		<servlet-class>es.gateway.sesiones.perfiles.servlets.GestionarLoginPerf</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>chanPass</servlet-name>
+		<servlet-class>es.gateway.sesiones.perfiles.servlets.GestionarLoginPerf</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>gestlogin</servlet-name>
+		<servlet-class>es.gateway.sesiones.perfiles.servlets.GestionarLoginPerf</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>gestidiomas</servlet-name>
+		<servlet-class>es.gateway.sesiones.perfiles.servlets.GestionIdiomas</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>buscaperfiljsp</servlet-name>
+		<servlet-class>es.gateway.sesiones.perfiles.servlets.GestionarPerfiles</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>gestperfiljsp</servlet-name>
+		<servlet-class>es.gateway.sesiones.perfiles.servlets.GestionarPerfiles</servlet-class>
+	</servlet>
+
+
+
+	<servlet>
+		<servlet-name>crearpefiljsp</servlet-name>
+		<servlet-class>es.gateway.sesiones.perfiles.servlets.GestionarPerfiles</servlet-class>
+	</servlet>
+
+	<!--
+		servlet> <servlet-name>permisosjsp</servlet-name> <servlet-class>
+		sesiones.perfiles.servlets.GestionarPermisos </servlet-class>
+		</servlet> <servlet> <servlet-name>ServletAjax</servlet-name>
+		<servlet-class> es.iecisa.connector.util.ServletAjax </servlet-class>
+		</servlet
+	-->
+
+	<servlet>
+		<servlet-name>gestloginPerf</servlet-name>
+		<servlet-class>es.gateway.sesiones.perfiles.servlets.GestionarLoginPerf</servlet-class>
+	</servlet>
+
+	<!--  <servlet>
+		<servlet-name>Notificaciones</servlet-name>
+		<servlet-class>es.iecisa.gateway.servlet.Notificaciones</servlet-class>
+	</servlet> -->
+
+
+	<!--  Mapping -->
+	<servlet-mapping>
+		<servlet-name>getPass</servlet-name>
+		<url-pattern>/get_Pass</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>chanPass</servlet-name>
+		<url-pattern>/change_Pass</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>gestlogin</servlet-name>
+		<url-pattern>/gest_Login</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>gestloginPerf</servlet-name>
+		<url-pattern>/gest_LoginPerf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>gestidiomas</servlet-name>
+		<url-pattern>/gestidiomas</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>gestidiomas</servlet-name>
+		<url-pattern>/gest_Perf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>buscaperfiljsp</servlet-name>
+		<url-pattern>/buscaperfiljsp</url-pattern>
+	</servlet-mapping>
+	<!--
+		servlet-mapping> <servlet-name>ServletAjax</servlet-name>
+		<url-pattern>/servletAjax</url-pattern> </servlet-mapping>
+		<servlet-mapping> <servlet-name>permisosjsp</servlet-name>
+		<url-pattern>/permisosjsp</url-pattern> </servlet-mapping
+	-->
+	<servlet-mapping>
+		<servlet-name>crearpefiljsp</servlet-name>
+		<url-pattern>/crearpefiljsp</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>gestperfiljsp</servlet-name>
+		<url-pattern>/gestperfiljsp</url-pattern>
+	</servlet-mapping>
+
+	<!--  <servlet-mapping>
+		<servlet-name>Notificaciones</servlet-name>
+		<url-pattern>/Notificaciones</url-pattern>
+	</servlet-mapping>-->
+
+	<servlet>
+		<servlet-name>Popea</servlet-name>
+		<jsp-file>/jsp/pops/PopUp.jsp</jsp-file>
+	</servlet>
+
+	<servlet>
+		<servlet-name>PopUpJSP</servlet-name>
+		<jsp-file>/jsp/enviomensajes/rolreceptor/PopUp.jsp</jsp-file>
+	</servlet>
+
+	<!--  Fin servlet Mapping -->
+	<!--FIN MODULO PERFILES -->
+	<!--  <servlet>
+		<display-name>NavegadorJSP</display-name>
+		<servlet-name>NavegadorJSP</servlet-name>
+		       <description>Su Descripcion</description> 
+		<jsp-file>/jsp/include/navegador.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NavegadorJSP</servlet-name>
+		<url-pattern>/NavegadorJSP</url-pattern>
+	</servlet-mapping>-->
+
+	<servlet>
+		<display-name>CambioPassword</display-name>
+		<servlet-name>CambioPassword</servlet-name>
+		       <description>Su Descripcion</description>
+		<servlet-class>es.gateway.servlet.CambioPasswordServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CambioPassword</servlet-name>
+		<url-pattern>/CambioPassword</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<display-name>CambiarPasswordJSP</display-name>
+		<servlet-name>CambiarPasswordJSP</servlet-name>
+		       <description>Su Descripcion</description> 
+		<jsp-file>/cambiarPassword.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CambiarPasswordJSP</servlet-name>
+		<url-pattern>/CambiarPasswordJSP</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<display-name>CambioPasswordJSP</display-name>
+		<servlet-name>CambioPasswordJSP</servlet-name>
+		
+			<description>Pagina jsp para validarse como usuario</description>
+		  
+		<jsp-file>/cambioPassword.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CambioPasswordJSP</servlet-name>
+		<url-pattern>/CambioPasswordJSP</url-pattern>
+	</servlet-mapping>
+
+	<!-- ........................................-->
+	<mime-mapping>
+		<extension>doc</extension>
+		<mime-type>application/msword</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>txt</extension>
+		<mime-type>application/msword</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>csv</extension>
+		<mime-type>application/msexcell</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>xls</extension>
+		<mime-type>application/msexcell</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>log</extension>
+		<mime-type>application/msword</mime-type>
+	</mime-mapping>
+	<!-- ........................................-->
+	<welcome-file-list>
+		<welcome-file>Autenticacion.jsp</welcome-file>
+	</welcome-file-list>
+
+<!-- 	<security-constraint> -->
+<!-- 		<web-resource-collection> -->
+<!-- 			<web-resource-name>SSL Pages</web-resource-name> -->
+<!-- 			<url-pattern>/*</url-pattern> -->
+<!-- 			<http-method>GET</http-method> -->
+<!-- 			<http-method>PUT</http-method> -->
+<!-- 			<http-method>POST</http-method> -->
+<!-- 		</web-resource-collection> -->
+<!-- 		<user-data-constraint> -->
+<!-- 			<transport-guarantee>CONFIDENTIAL</transport-guarantee> -->
+<!-- 		</user-data-constraint> -->
+<!-- 	</security-constraint> -->
+
+ <!-- Environment JCrontab entrys -->
+  <env-entry>
+     <env-entry-name>config/jcrontab</env-entry-name>
+<!--      <env-entry-value>/var/tomcat/webapps/portanode/WEB-INF/classes/es/portanode/conf/cron/jcrontab.properties</env-entry-value> -->
+		<env-entry-value>/opt/app/glassfish4/glassfish/domains/domain1/applications/gateway/WEB-INF/classes/es/portanode/conf/cron/jcrontab.properties</env-entry-value>
+     <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+
+  <!-- Environment logs properties files -->
+  <env-entry>
+    <env-entry-name>config/logs</env-entry-name>    
+<!--     <env-entry-value>/var/tomcat/webapps/portanode/WEB-INF/classes/es/portanode/conf/logs/ConfigLogs.properties</env-entry-value> -->
+		<env-entry-value>/opt/app/glassfish4/glassfish/domains/domain1/applications/gateway/WEB-INF/classes/es/portanode/conf/logs/ConfigLogs.properties</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+
+	<resource-ref>
+		<description>no description</description>
+		<res-ref-name>jdbc/DScmt
+		</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+   <listener>
+     <listener-class>
+      es.gateway.web.listeners.ApplicationListener
+     </listener-class>
+    </listener>
+</web-app>

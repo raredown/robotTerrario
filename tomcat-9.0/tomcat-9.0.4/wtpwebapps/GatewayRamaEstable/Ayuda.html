@@ -1,0 +1,265 @@
+<html>
+<head>
+<title>Ayuda</title>
+<link href="estilos/estilos.css" rel="stylesheet" type="text/css"> </head>
+
+<body leftMargin=0 topMargin=0 marginheight="0" marginwidth="0" class="texto">
+<center>
+  <b><font size="5">Formato del fichero</font></b> 
+  <HR>
+	
+  <p>El fichero contenedor de las solicitudes de portabilidad, ha de tener el 
+    siguiente formato para que todas y cada una de las solicitudes que en él se 
+    encuentran puedan ser cargadas en la base de datos de manera satisfactoria. 
+  </p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <td>Cada solicitud completa ha de tener como último caracter un salto de 
+        carro.</td>
+    </tr>
+    <tr>
+      <td>Cada campo dentro de una solicitud ha de estar separado por un "punto 
+        y coma" (;).</td>
+    </tr>
+    <tr>
+      <td>Como máximo puede haber 70 rangos de numeración(NRN + Número Inicial 
+        + Número Final).</td>
+    </tr>
+    <tr>
+      <td>Cada campo tiene una longitud máxima y , esta, no puede ser excedida 
+        en ningun caso.</td>
+    </tr>
+  </table>
+	
+  <p><strong>Ejemplo de solicitud:</strong></p>
+  <p><em>Remitente[5];Destinatario[5];Observaciones[80];Flag ULL[1];Num Admin
+    ULL[14];Id ULL[21];NIF[15];Nombre[80];Direcci&oacute;n[80];CP[5];Localidad[80];Provincia[2];Fecha[15];Tipo 
+    Portabilidad[2];Flag Num Completa[1];Info Tarifaria[80];ActCPE[1];OpReceptor[5];OpDonante[5];Fecha Lanzamiento[15]
+    Rangos[70]--&gt; [NRN[6];Rango Inicial[15];Rango Final[15];] </em></p>
+  <p align="left">00025;00001;Observaciones;1;11111111111111;111111111111111111111
+    ;12345678A;Nombre del Abonado;Direcci&oacute;n del Abonado;28080;Madrid;32;01122004 
+    180000;01;1;Informaci&oacute;n Tarifaria;0;00025;00001;18022005 120000;030001;918889988;918889988;030001;917770010;917770013;</p>
+  <table width="100%"  border="1" class="tablas"   >
+    <tr> 
+      <th width="144" align="center">Nombre del campo</th>
+      <th width="90" align="center">Longitud</th>
+      <th width="90" align="center">Restricciones</th>
+    </tr>
+    <tr> 
+      <td align="center">Remitente</td>
+      <td align="center">5</td>
+      <td align="left">
+		  <ul>
+			  <li>Ha de tener una longitud fija de 5 caracteres.</li>	  
+    	      <li>Ha de ser igual al campo OPERADOR RECEPTOR.</li>
+		  </ul>
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Destinatario</td>
+      <td align="center">5</td>
+      <td align="left">
+		  <ul>
+			   <li>Ha de tener una longitud fija de 5 caracteres.</li>	  
+			  <li>Ha de ser igual al campo OPERADOR DONANTE.</li>
+		  </ul>
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Observaciones</td>
+      <td align="center">80</td>
+      <td align="left">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td align="center">Flag de solicitud ULL</td>
+      <td align="center">1</td>
+      <td align="left">
+	  <ul>
+			<li>Ha de contener uno de los siguientes valores : 0 &oacute; 1.</li>
+		</ul>	
+		</td>
+    </tr>
+    <tr> 
+      <td align="center">N&ordm; Orden Administrativo ULL</td>
+      <td align="center">14</td>
+      <td align="left">
+	  <ul>
+		  <li>Obligatorio cuando el FLAG DE SOLICITUD ULL es 1.</li>
+	  </ul>
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Identificador del proceso ULL</td>
+      <td align="center">21</td>
+      <td align="left">
+		  <ul>
+			  <li>Obligatorio cuando el FLAG DE SOLICITUD ULL es 1.</li>
+		  </ul>
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">NIF / CIF abonado</td>
+      <td align="center">15</td>
+      <td align="left">
+	  		<ul>
+			  <li>Campo Obligatorio.</li>
+		  	</ul>
+	</td>
+    </tr>
+    <tr> 
+      <td align="center">Nombre o Raz&oacute;n Social del abonado</td>
+      <td align="center">80</td>
+      <td align="left">
+  	  		<ul>
+			  <li>Campo Obligatorio.</li>
+		  	</ul>
+
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Direcci&oacute;n del abonado</td>
+      <td align="center">80</td>
+      <td align="left">
+			<ul>
+			  <li>Campo Obligatorio.</li>
+		  	</ul>
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">C&oacute;digo postal del abonado</td>
+      <td align="center">5</td>
+      <td align="left"><ul>
+          <li>Ha de contener exclusivamente caracteres numéricos.</li>
+        </ul>
+
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Localidad del abonado</td>
+      <td align="center">80</td>
+      <td align="left">
+ 	  		<ul>
+			  <li>Campo Obligatorio.</li>
+		  	</ul>
+
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Provincia del abonado</td>
+      <td align="center">2</td>
+      <td align="left">
+	  		<ul>
+          <li>Ha de contener exclusivamente caracteres numéricos.</li>
+          <li><a href="Provincias.html"><font color="#663300">Ver Descripci&oacute;n 
+            Provincias</font></a>.</li>
+        </ul>
+	  
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Fecha para el cambio preferida por abonado</td>
+      <td align="center">15</td>
+      <td align="left">
+	  		<ul>
+          <li>Campo Obligatorio.</li>
+          <li>Debe tener el siguiente formato: 'DDMMYYYY HHMMSS'.</li>
+        </ul>
+	  
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Tipo de Portabilidad</td>
+      <td align="center">2</td>
+      <td align="left">
+	  		<ul>
+			  <li>Ha de contener exclusivamente caracteres numéricos.</li>
+		  	</ul>
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Flag de Numeraci&oacute;n Completa</td>
+      <td align="center">1</td>
+      <td align="left"> <ul>
+          <li>Ha de contener uno de los siguientes valores : 0 &oacute; 1.</li>
+        </ul>
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Informaci&oacute;n Tarifaria</td>
+      <td align="center">80</td>
+      <td align="left">
+	  		<ul>
+			  <li>Campo Obligatorio.</li>
+		  	</ul>
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">Actuaci&oacute;n Coordinada en planta externa</td>
+      <td align="center">1</td>
+      <td align="left">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td align="center">Operador Receptor</td>
+      <td align="center">5</td>
+      <td align="left"> <ul>
+	     <li>Ha de tener una longitud fija de 5 caracteres.</li>
+          <li>Ha de contener exclusivamente caracteres numéricos.</li>
+          <li>Ha de ser igual al campo REMITENTE.</li>
+        </ul>
+		</td>
+					
+    </tr>
+    <tr> 
+      <td align="center">Operador Donante</td>
+      <td align="center">5</td>
+      <td align="left"> <ul>
+          <li>Ha de tener una longitud fija de 5 caracteres.</li>
+          <li>Ha de contener exclusivamente caracteres num&eacute;ricos.</li>
+          <li>Ha de ser igual al campo DESTINATARIO.</li>
+        </ul>
+	  </td>
+    </tr>
+    <tr>
+      <td align="center">Fecha de lanzamiento de la portabilidad</td>
+      <td align="center">15</td>
+      <td align="left">
+	  		<ul>
+          <li>Campo Obligatorio.</li>
+          <li>Debe tener el siguiente formato: 'DDMMYYYY HHMMSS'.</li>
+        </ul>
+
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">NRN</td>
+      <td align="center">6</td>
+      <td align="left">
+	   <ul>
+          <li>Al menos ha de existir 1.</li>
+        </ul>
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">N&ordm; Inicial del Rango</td>
+      <td align="center">15</td>
+      <td align="left">
+	   <ul>
+          <li>Al menos ha de existir 1.</li>
+        </ul>
+	  </td>
+    </tr>
+    <tr> 
+      <td align="center">N&ordm; Final del Rango</td>
+      <td align="center">15</td>
+      <td align="left">
+	   <ul>
+          <li>Al menos ha de existir 1.</li>
+        </ul>
+	  
+	  </td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Documento sin t&iacute;tulo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="Hoja_estilos_ayuda.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<span class="cabecera">Solicitud de Cambio de Operador (por Fichero)</span> 
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p> <span class="TextoFunci&oacute;n">Las solicitudes deber&aacute;n de estar 
+  previamente cumplimentada y catalogada en un archivo en disco. </span></p>
+<p class="TextoFunci&oacute;n"  >Este <strong>proceso</strong> se compone b&aacute;sicamente<strong>de 
+  dos pasos</strong>:</p>
+<ul>
+  <li class="TextoFunci&oacute;n">El primero, es la carga de fichero con la informaci&oacute;n 
+    de los abonados a cambiar de Operador.</li>
+  <li class="TextoFunci&oacute;n">El segundo, consiste en el envi&oacute; de mensajes 
+    a la Entidad de Referencia. </li>
+</ul>
+<table width="650" border="0" cellspacing="0">
+  <tr> 
+    <td width="66%"><img src="Images/image1_1_2_1.jpg" width="444" height="120"></td>
+    <td width="34%" class="TextoFunci&oacute;n"><p>Para el <strong>primer paso</strong>, 
+        deber&aacute; escribir el nombre del fichero o pulsar el <a href="#CargarDatos"><strong>botón 
+        "Examinar"</strong></a></p>
+      <p> para el <strong>segundo paso</strong> deber&aacute; de <strong>pulsar</strong> 
+        sobre el literal <a href="#VerPendiente"><strong>"Ver solicitudes pendientes"</strong></a>.</p></td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><a name="CargarDatos"></a><u><strong>Cargar Datos</strong></u> 
+  .- <span class="TextoFunci&oacute;n">Las solicitudes deber&aacute;n de estar 
+  previamente cumplimentada y catalogada en un archivo en disco. para activar 
+  el proceso se debe de escribir el PATH del archivo en la caja correspondiente 
+  <strong>&#8220;Cargar Datos del Fichero&#8221; </strong>o pulsar el bot&oacute;n 
+  &quot;<em><strong>Examinar</strong></em>&quot; y abrir la una ventana donde 
+  podr&aacute; navegar por la estructura l&oacute;gica de los directorios del 
+  disco, seleccionando el archivo adecuado, esta operaci&oacute;n rellenar&aacute; 
+  la caja de texto con el nombre y Path del fichero.</span></p>
+<div align="justify"> 
+  <p><span class="TextoFunci&oacute;n">Una vez tengamos el nombre del fichero, 
+    pulsaremos el bot&oacute;n &#8220;Cargar&#8221;. Esta acción desencadena un 
+    proceso de lectura y validación de la información que contiene el fichero. 
+    Si se detecta alguna inconsistencia o violación de las reglas de configuración 
+    del fichero, el sistema mostrará una ventana con las anomal&iacute;as detectadas. 
+    En caso contrario, la información quedará en situación de ser transferida. 
+    </span></p>
+</div>
+<p align="center" class="TextoFunci&oacute;n"><strong><u>NORMAS PARA LA CREACI&Oacute;N 
+  DEL ARCHIVO DE TRASPASO</u></strong></p>
+<ul class="TextoFunci&oacute;n">
+  <li> Cada Solicitud completa ha de tener como &uacute;ltimo car&aacute;cter 
+    un salto de carro.</li>
+  <li> Cada campo ir&aacute; separado del siguiente por el car&aacute;cter &#8220;;&#8221;.</li>
+  <li>Como m&aacute;ximo puede haber 70 rangos de numeraciones (NRN + N&uacute;mero 
+    Inicial + N&uacute;mero Final).</li>
+  <li> La longitud m&aacute;xima de los campos seg&uacute;n la tabla adjunta, 
+    no podr&aacute; ser excedida bajo ning&uacute;n concepto.</li>
+  <br>
+  <p></p>
+</ul>
+<table width="568" border="0" cellspacing="0">
+  <tr> 
+    <td width="218"><div align="center" class="CabTabla">NOMBRE</div></td>
+    <td	width="327"><div align="center" class="CabTabla">CARACTER&Iacute;STICAS</div></td>
+  </tr>
+</table>
+<img src="Images/PIXEL.gif" width="650" height="2"><br>
+<table width="650" border="0">
+  <tr bgcolor="#96E792"> 
+    <td width="34%" class="NormalTabla">Remitente</td>
+    <td width="5%" class="TextoFunci&oacute;n">Char</td>
+    <td width="3%" class="TextoFunci&oacute;n"><div align="center">5</div></td>
+    <td width="58%" class="TextoFunci&oacute;n">Valor seg&uacute;n Tabla de Operadores 
+      (Anexo 1)<br>
+      Ha de ser igual que el campo &#8220;Operador Receptor&#8221; </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Destinatario</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">5</div></td>
+    <td class="TextoFunci&oacute;n"><p>Valor seg&uacute;n Tabla de Operadores 
+        (Anexo 1)<br>
+        Ha de ser igual que el campo &#8220;Operador Donante&#8221;<br>
+      </p></td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td height="22" class="NormalTabla">Observaciones</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Flag de solicitud ULL</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">1</div></td>
+    <td class="TextoFunci&oacute;n"> <strong>Unbundling Local Loop (ULL</strong>) 
+      <p>Sin solicitud de ULL= 0, Con solicitud = 1</p></td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td class="NormalTabla">N&ordm; Orden Administrativo ULL<br></td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">14</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si el campo Flag de solicitud 
+      ULL es &#8220;1</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Identificador del proceso ULL</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">21</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si el campo Flag de solicitud 
+      ULL es &#8220;1&#8221;.</td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td class="NormalTabla">NIF/CIF del abonado</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio.</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Nombre o Raz&oacute;n Social del abonado</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio</td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td class="NormalTabla">Direcci&oacute;n del abonado</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">C&oacute;digo Postal</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">5</div></td>
+    <td class="TextoFunci&oacute;n"><p>Obligatorio</p></td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td class="NormalTabla">Localidad del abonado</td>
+    <td class="TextoFunci&oacute;n" >Char</td>
+    <td class="TextoFunci&oacute;n" ><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n" >Obligatorio</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Provincia del abonado</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">2</div></td>
+    <td class="TextoFunci&oacute;n">Seg&uacute;n tabla de Provincias.</td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td class="NormalTabla">Fechas de cambio preferida por el abonado</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">8</div></td>
+    <td class="TextoFunci&oacute;n">En formato ddmmaaaa</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Hora de cambio preferida por el abonado</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">6</div></td>
+    <td class="TextoFunci&oacute;n"><p>En formato hhmmss entre las 8 y las 20 
+        horas
+    </td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td height="31" class="NormalTabla">Tipo de portabilidad</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">2</div></td>
+    <td class="TextoFunci&oacute;n"><p>Cumplimentar de acuerdo a la lista de valores 
+        propuesta: 
+      <ul>
+        <li> &nbsp;Acceso individual = 01</li>
+        <li> &nbsp;Acceso básico RDSI = 02</li>
+        <li> &nbsp;Accesos m&uacute;ltiples= 03</li>
+        <li>&nbsp;N&uacute;meros inteligentes =04</li>
+      </ul></td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Flag de numeraci&oacute;n completa</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">1</div></td>
+    <td class="TextoFunci&oacute;n">&nbsp; </td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td class="NormalTabla">Informaci&oacute;n Tarifaria</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Actuaci&oacute;n coordinada en planta externa</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">1</div></td>
+    <td class="TextoFunci&oacute;n">&nbsp;</td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td class="NormalTabla">Operador Receptor</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">5</div></td>
+    <td class="TextoFunci&oacute;n">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Operador Donante</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">5</div></td>
+    <td class="TextoFunci&oacute;n">&nbsp;</td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td class="NormalTabla">NRN</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n" align="center">6</td>
+    <td class="TextoFunci&oacute;n"><strong>Network Routing Number (NRN)</strong></td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td class="NormalTabla">Fecha y Hora de lanzamiento</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n"><div align="center">14</div></td>
+    <td class="TextoFunci&oacute;n">formato ddmmaaaahhmmss</td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td class="NormalTabla">N&uacute;mero inicial del rango</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n">15</td>
+    <td class="TextoFunci&oacute;n">&nbsp;</td>
+  </tr>
+  <tr bgcolor="#96E792"> 
+    <td class="NormalTabla">Numero final del rango</td>
+    <td class="TextoFunci&oacute;n">Char</td>
+    <td class="TextoFunci&oacute;n">15</td>
+    <td class="TextoFunci&oacute;n">&nbsp;</td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><a name="VerPendiente"></a> <u><strong>Ver solicitudes</strong></u>.- 
+  Lo importante de esta opci&oacute;n es poder ver todos <strong>los ficheros 
+  </strong>cargados en el sistema y c<strong>omprobar el estado</strong> de cada 
+  uno de ellos, tambi&eacute;n desde esta pantalla podr&aacute; <strong>consultar 
+  y eliminar los ficheros</strong> que desee.</p>
+<p class="TextoFunci&oacute;n">El estado del fichero puede ser: <strong>Enviado 
+  o Pendiente de enviar</strong>. Aunque un fichero tenga fecha de envi&oacute; 
+  posterior al d&iacute;a de hoy, si lo seleccionamos, podemos realizar el envi&oacute;. 
+  En caso contrario, en la fecha que esta programado, se realizar&aacute; la operaci&oacute;n 
+  autom&aacute;ticamente.</p>
+<p class="TextoFunci&oacute;n"><img src="Images/image1_1_2_2.jpg" width="751" height="101"></p>
+<p class="TextoFunci&oacute;n">Las acciones disponibles desde esta pantalla son:</p>
+<table width="650" border="0" cellspacing="0">
+  <tr> 
+    <td width="95"><div align="center"><img src="Images/image_aspa_borrar.jpg" width="18" height="22"></div></td>
+    <td width="551" class="TextoFunci&oacute;n"> Eliminar fichero de la relaci&oacute;n</td>
+  </tr>
+  <tr> 
+    <td><div align="center"><img src="Images/image_detalle.jpg" width="19" height="19"></div></td>
+    <td class="TextoFunci&oacute;n"> Ver en detalle los datos del fichero</td>
+  </tr>
+  <tr> 
+    <td height="22"><div align="center"><img src="Images/image_ver_Rangos.jpg" width="13" height="13"></div></td>
+    <td class="TextoFunci&oacute;n"> Ver rango de n&uacute;meros a portar</td>
+  </tr>
+  <tr> 
+    <td height="22"><img src="Images/Boton_eliminar_todas.jpg" width="103" height="26"></td>
+    <td class="TextoFunci&oacute;n"> Elimina todos los ficheros cargados </td>
+  </tr>
+  <tr> 
+    <td height="22"><img src="Images/Boton_enviar.jpg" width="103" height="27"></td>
+    <td class="TextoFunci&oacute;n"> Genera los mensajes del fichero seleccionado 
+      y los env&iacute;a a la Entidad de Referencia</td>
+  </tr>
+  <tr> 
+    <td height="22"><img src="Images/Boton_pag_anterior.jpg" width="103" height="26"></td>
+    <td class="TextoFunci&oacute;n"> Volver a la p&aacute;gina anterior </td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p align="right"> 
+  <input type="button" value="Cerrar" onClick="window.close()" name="button">
+</p></p>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Documento sin t&iacute;tulo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="Hoja_estilos_ayuda.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<span class="cabecera">Solicitud de Cambio de Operador (por Fichero)</span> 
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p> <span class="TextoFunci&oacute;n">Las solicitudes deber&aacute;n estar 
+  previamente cumplimentadas y almacenadas en un archivo en disco. </span></p>
+<p class="TextoFunci&oacute;n"  >Este <strong>proceso</strong> se compone basicamente 
+  de <strong>dos pasos</strong>:</p>
+<ul>
+  <li class="TextoFunci&oacute;n">El primero, es la carga de fichero con la informaci&oacute;n 
+    de los abonados a cambiar de Operador.</li>
+  <li class="TextoFunci&oacute;n">El segundo, consiste en el env&iacute;o de mensajes 
+    a la Entidad de Referencia. </li>
+</ul>
+<table width="650" border="0" cellspacing="0">
+  <tr> 
+    <td width="66%"><img src="Images/image1_1_2_1.jpg" width="552" height="116"></td>
+    <td width="34%" class="TextoFunci&oacute;n"><p>Para el <strong>primer paso</strong>, 
+        deber&aacute; escribir la ruta completa del fichero o pulsar el <a href="#CargarDatos"><strong>botón 
+        &quot;Examinar&quot;</strong></a></p>
+      <p> Para el <strong>segundo paso</strong> deber&aacute; <strong>pulsar</strong> 
+        sobre el literal <a href="#VerPendiente"><strong>&quot;Ver solicitudes pendientes&quot;</strong></a>.</p></td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><a name="CargarDatos"></a><u><strong>Cargar Datos</strong></u> 
+  .- <span class="TextoFunci&oacute;n">Las solicitudes deber&aacute;n estar 
+  previamente cumplimentadas y almacenadas en un archivo en disco. Para activar 
+  el proceso se debe escribir el PATH del archivo en la caja correspondiente 
+  <strong>&quot;Cargar Datos del Fichero&quot;</strong>, o pulsar el bot&oacute;n 
+  &quot;<em><strong>Examinar</strong></em>&quot; y abrir una ventana donde 
+  podr&aacute; navegar por la estructura l&oacute;gica de los directorios del 
+  disco, seleccionando el archivo adecuado. Esta operaci&oacute;n rellenar&aacute; 
+  la caja de texto con el nombre y Path del fichero.</span></p>
+<div align="justify"> 
+  <p><span class="TextoFunci&oacute;n">Una vez tengamos el nombre del fichero, 
+    pulsaremos el bot&oacute;n &quot;Cargar&quot;. Esta acción desencadena un 
+    proceso de lectura y validación de la información que contiene el fichero. 
+    Si se detecta alguna inconsistencia o violación de las reglas de configuración 
+    del fichero, el sistema mostrará una ventana con las anomal&iacute;as detectadas. 
+    En caso contrario, la información quedará en situación de ser transferida. 
+    </span></p>
+</div>
+<p align="center" class="TextoFunci&oacute;n"><strong><u>NORMAS PARA LA CREACI&Oacute;N 
+  DEL ARCHIVO DE SOLICITUDES</u></strong></p>
+<ul class="TextoFunci&oacute;n">
+  <li> Cada Solicitud completa ha de tener como &uacute;ltimo car&aacute;cter 
+    un salto de carro.</li>
+  <li> Cada campo ir&aacute; separado del siguiente por el car&aacute;cter &quot;;&quot;.</li>
+  <li>Como m&aacute;ximo puede haber 70 rangos de numeraciones (NRN + N&uacute;mero 
+    Inicial + N&uacute;mero Final).</li>
+  <li> La longitud m&aacute;xima de los campos seg&uacute;n la tabla adjunta, 
+    no podr&aacute; ser excedida bajo ning&uacute;n concepto.</li>
+  <li> Salvo que se indique lo contrario, todos los campos son obligatorios.</li>
+  <li> Si alguno de los campos opcionales se deja en blanco, se incluir&aacute;
+  	exclusivamente el separador (";").</li>
+  <li> Los campos que incluyan fechas deben seguir el formato &quot;dd/mm/aaaa hh:mi:ss&quot; 
+  	o &quot;aaaammdd hhmiss&quot;, respetando el n&uacute;mero de caracteres (ejp: &quot;03/02/2010 08:00:00&quot;).</li>
+</ul>
+<br/>
+<table width="650" border="0" cellspacing="0">
+  <tr bgcolor="#CCC17A"> 
+    <td width="34%" class="NormalTabla"><div align="center">NOMBRE CAMPO</div></td>
+    <td width="8%" class="NormalTabla"><div align="center">TAMA&Ntilde;O</div></td>
+    <td	width="58%" class="NormalTabla"><div align="center">CARACTER&Iacute;STICAS</div></td>
+  </tr>
+</table>
+<img src="Images/PIXEL.gif" width="650" height="2"><br>
+<table width="650" border="0">
+  <tr> 
+    <td width="34%" class="NormalTabla">Fecha de lanzamiento</td>
+    <td width="8%" class="TextoFunci&oacute;n"><div align="center">-</div></td>
+    <td width="58%" class="TextoFunci&oacute;n">Campo opcional.
+    	<p>Indica el momento en que queremos que se procese la solicitud. Si se deja en blanco, se procesar&aacute;
+    	tan pronto como sea posible.</p>
+    </td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">Destinatario</td>
+    <td class="TextoFunci&oacute;n"><div align="center">5</div></td>
+    <td class="TextoFunci&oacute;n"><p>C&oacute;digo del operador donante al que se dirige la solicitud.<br>
+      </td>
+  </tr>
+  <tr> 
+    <td height="22" class="NormalTabla">Observaciones</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.
+    	<p>Cualquier observaci&oacute;n que queramos incluir en la solicitud.</p>
+    </td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">Flag de solicitud ULL</td>
+    <td class="TextoFunci&oacute;n"><div align="center">1</div></td>
+    <td class="TextoFunci&oacute;n">Desagregaci&oacute;n de bucle de abonado (<em>Unbundling Local Loop</em>).
+    	<ul>
+		<li>&quot;0&quot; - sin desagregaci&oacute;n.</li>
+		<li>&quot;1&quot; - con desagregaci&oacute;n.</li>
+		</ul>
+      </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">N&ordm; Orden Administrativo ULL<br></td>
+    <td class="TextoFunci&oacute;n"><div align="center">14</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.</td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">Identificador del proceso ULL</td>
+    <td class="TextoFunci&oacute;n"><div align="center">21</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si el campo <em>&quot;Flag de solicitud 
+      ULL&quot;</em> es &quot;1&quot;.</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">NIF/CIF del abonado</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">&nbsp;</td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">Nombre o Raz&oacute;n Social del abonado</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Direcci&oacute;n del abonado</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">&nbsp;</td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">C&oacute;digo Postal</td>
+    <td class="TextoFunci&oacute;n"><div align="center">5</div></td>
+    <td class="TextoFunci&oacute;n"><p>&nbsp;</p></td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Localidad del abonado</td>
+    <td class="TextoFunci&oacute;n" ><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n" >&nbsp;</td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">Provincia del abonado</td>
+    <td class="TextoFunci&oacute;n"><div align="center">2</div></td>
+    <td class="TextoFunci&oacute;n">C&oacute;digo de provincia seg&uacute;n tabla de Provincias.</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Ventana de cambio</td>
+    <td class="TextoFunci&oacute;n"><div align="center">-</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.
+    	<p>La ventana de cambio preferida por el abonado.</p>
+    </td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td height="31" class="NormalTabla">Tipo de portabilidad</td>
+    <td class="TextoFunci&oacute;n"><div align="center">2</div></td>
+    <td class="TextoFunci&oacute;n">Cumplimentar de acuerdo a la lista de valores 
+        propuesta: 
+      <ul>
+        <li> &nbsp;&quot;01&quot; - Acceso individual</li>
+        <li> &nbsp;&quot;03&quot; - Accesos m&uacute;ltiples</li>
+        <li>&nbsp;&quot;04&quot; - N&uacute;meros inteligentes</li>
+      </ul></td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Flag de numeraci&oacute;n completa</td>
+    <td class="TextoFunci&oacute;n"><div align="center">1</div></td>
+    <td class="TextoFunci&oacute;n">Valor &quot;1&quot; si se quieren solicitar los rangos asociados
+    	a la cabecera, &quot;0&quot; en caso contrario.
+    	<p>S&oacute;lo se puede activar para el tipo de portabilidad &quot;03&quot;.</p>
+    </td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">Informaci&oacute;n Tarifaria</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Actuaci&oacute;n coordinada en planta externa</td>
+    <td class="TextoFunci&oacute;n"><div align="center">1</div></td>
+    <td class="TextoFunci&oacute;n">Valor &quot;1&quot; para activarlo, &quot;0&quot; para desactivarlo.</td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">Nombre de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.
+    	<p>El nombre de la persona de contacto.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Tel&eacute;fono de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si se incluye el campo <em>&quot;Nombre de Contacto&quot;</em>.
+    </td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">Fax de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si se incluye el campo <em>&quot;Nombre de Contacto&quot;</em>.
+    </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Email de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si se incluye el campo <em>&quot;Nombre de Contacto&quot;</em>.
+    </td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">N&uacute;mero de proceso</td>
+    <td class="TextoFunci&oacute;n"><div align="center">2</div></td>
+    <td class="TextoFunci&oacute;n">Cumplimentar de acuerdo a la siguiente lista de valores: 
+      <ul>
+        <li> &nbsp;&quot;01&quot; - Proceso 1</li>
+        <li> &nbsp;&quot;12&quot; - Proceso 12</li>
+        <li> &nbsp;&quot;15&quot; - Proceso B&aacute;sico (Exclusivo 24H)</li>
+        <li> &nbsp;&quot;16&quot; - Proceso Asegurado (Exclusivo 24H)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr id="fechaSolicitud" > 
+      <td class="NormalTabla">Fecha SP del usuario</td>
+      <td class="TextoFunci&oacute;n"><div align="center">8</div></td>
+      <td class="TextoFunci&oacute;n">Fecha de solicitud del usuario en formato: yyyymmdd (Campo exclusivo 24H)</td>
+  </tr>
+  <tr id="revendedorReceptor" bgcolor="#E6E1BC"> 
+      	<td class="NormalTabla">Revendedor receptor</td>
+      	<td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+      	<td class="TextoFunci&oacute;n">Operador revendedor receptor de la numeraci&oacute;n  (Campo exclusivo 24H)</td>
+  </tr>
+  <tr id="revendedorDonante" > 
+      	<td class="NormalTabla">Revendedor donante</td>
+      	<td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+      	<td class="TextoFunci&oacute;n">Operador revendedor donante de la numeraci&oacute;n  (Campo exclusivo 24H)</td>
+  </tr>
+  
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla"> NRN</td>
+    <td class="TextoFunci&oacute;n"><div align="center">6</div></td>
+    <td class="TextoFunci&oacute;n">Network Routing Number (NRN)</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Rango inicial</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">N&uacute;mero inicial del rango.</td>
+  </tr>
+  <tr bgcolor="#E6E1BC"> 
+    <td class="NormalTabla">Rango final</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">N&uacute;mero final del rango.</td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">...</td>
+    <td class="TextoFunci&oacute;n"><div align="center">-</div></td>
+    <td class="TextoFunci&oacute;n">A continuaci&oacute;n se pueden a&ntilde;adir m&aacute;s rangos,
+    	incluyendo de nuevo <em>&quot;NRN;RANGO INICIAL;RANGO FINAL&quot;</em> tantas veces como sea necesario.
+    	<p>Para el Tipo de Portabilidad &quot;04&quot; s&oacute;lo se puede solicitar 1 rango.</p>
+    </td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><a name="VerPendiente"></a> <u><strong>Ver solicitudes</strong></u>.- 
+  Lo importante de esta opci&oacute;n es poder ver todas las <strong>solicitudes 
+  </strong>cargadas en el sistema <strong>pendientes de env&iacute;o</strong> . 
+  Tambi&eacute;n desde esta pantalla podr&aacute; <strong>editar, enviar 
+  y eliminar las solicitudes</strong> que desee.</p>
+<p class="TextoFunci&oacute;n">Aunque una solicitud tenga fecha de env&iacute;o 
+  posterior al d&iacute;a de hoy, si lo seleccionamos, podemos realizar el envi&oacute;. 
+  En caso contrario, en la fecha que esta programado, se realizar&aacute; la operaci&oacute;n 
+  autom&aacute;ticamente.</p>
+<p class="TextoFunci&oacute;n"><img src="Images/image1_1_2_2.jpg" width="673" height="154"></p>
+<p class="TextoFunci&oacute;n">Las acciones disponibles desde esta pantalla son:</p>
+<table width="650" border="0" cellspacing="0">
+  <tr> 
+    <td width="95"><div align="center"><img src="Images/image_aspa_borrar.jpg" width="18" height="22"></div></td>
+    <td width="551" class="TextoFunci&oacute;n"> Eliminar solicitud de la relaci&oacute;n</td>
+  </tr>
+  <tr> 
+    <td><div align="center"><img src="Images/image_detalle.jpg" width="19" height="19"></div></td>
+    <td class="TextoFunci&oacute;n"> Ver en detalle los datos de la solicitud</td>
+  </tr>
+  <tr> 
+    <td height="22"><div align="center"><img src="Images/image_ver_Rangos.jpg" width="13" height="13"></div></td>
+    <td class="TextoFunci&oacute;n"> Ver rango de n&uacute;meros a portar</td>
+  </tr>
+  <tr> 
+    <td height="22"><img src="../images/EliminarTodas.jpg"></td>
+    <td class="TextoFunci&oacute;n"> Eliminar <strong>todas</strong> las solicitudes 
+    	pendientes de envío
+    </td>
+  </tr>
+  <tr> 
+    <td height="22"><img src="../images/Respue6.jpg"></td>
+    <td class="TextoFunci&oacute;n"> Genera el mensaje de la solicitud seleccionada 
+      y lo env&iacute;a a la Entidad de Referencia</td>
+  </tr>
+  <tr> 
+    <td height="22"><img src="../images/Back.jpg"></td>
+    <td class="TextoFunci&oacute;n"> Volver a la p&aacute;gina anterior </td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p align="right"> 
+  <input type="button" value="Cerrar" onClick="window.close()" name="button">
+</p></p>
+</body>
+</html>

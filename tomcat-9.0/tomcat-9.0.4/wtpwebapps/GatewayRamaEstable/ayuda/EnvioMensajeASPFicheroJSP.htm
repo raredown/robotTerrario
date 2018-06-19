@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Documento sin t&iacute;tulo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="Hoja_estilos_ayuda.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<span class="cabecera">Aceptaci&oacute;n de Cambio de Operador (por Fichero)</span> 
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p> <span class="TextoFunci&oacute;n">Las aceptaciones deber&aacute;n estar 
+  previamente cumplimentadas y almacenadas en un archivo en disco. </span></p>
+<p class="TextoFunci&oacute;n">Este <strong>proceso</strong> se compone &uacute;nicamente 
+  de <strong>un paso</strong>: la carga del fichero.</p>
+<table width="650" border="0" cellspacing="0">
+  <tr> 
+    <td width="66%"><img src="Images/image1_2_1_3.jpg"></td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n"><u><strong>Cargar Datos</strong></u> 
+  .- <span class="TextoFunci&oacute;n">Las aceptaciones deber&aacute;n estar 
+  previamente cumplimentadas y almacenadas en un archivo en disco. Para activar 
+  el proceso se debe escribir el PATH del archivo en la caja correspondiente 
+  <strong>&quot;Cargar Datos del Fichero&quot;</strong>, o pulsar el bot&oacute;n 
+  &quot;<em><strong>Examinar</strong></em>&quot; y abrir una ventana donde 
+  podr&aacute; navegar por la estructura l&oacute;gica de los directorios del 
+  disco, seleccionando el archivo adecuado. Esta operaci&oacute;n rellenar&aacute; 
+  la caja de texto con el nombre y Path del fichero.</span></p>
+<div align="justify"> 
+  <p><span class="TextoFunci&oacute;n">Una vez tengamos el nombre del fichero, 
+    pulsaremos el bot&oacute;n &quot;Cargar&quot;. Esta acción desencadena un 
+    proceso de lectura y validación de la información que contiene el fichero. 
+    Si se detecta alguna inconsistencia o violación de las reglas de configuración 
+    del fichero, el sistema mostrará una ventana con las anomal&iacute;as detectadas. 
+    En caso contrario, la información quedará en situación de ser transferida. 
+    </span></p>
+</div>
+<p align="center" class="TextoFunci&oacute;n"><strong><u>NORMAS PARA LA CREACI&Oacute;N 
+  DEL ARCHIVO DE ACEPTACIONES</u></strong></p>
+<ul class="TextoFunci&oacute;n">
+  <li> Cada aceptaci&oacute;n completa ha de tener como &uacute;ltimo car&aacute;cter 
+    un salto de carro.</li>
+  <li> Cada campo ir&aacute; separado del siguiente por el car&aacute;cter &quot;;&quot;.</li>
+  <li>Como m&aacute;ximo puede haber 70 rangos de numeraciones (NRN + N&uacute;mero 
+    Inicial + N&uacute;mero Final).</li>
+  <li> La longitud m&aacute;xima de los campos seg&uacute;n la tabla adjunta, 
+    no podr&aacute; ser excedida bajo ning&uacute;n concepto.</li>
+  <li> Salvo que se indique lo contrario, todos los campos son obligatorios.</li>
+  <li> Si alguno de los campos opcionales se deja en blanco, se incluir&aacute;
+  	exclusivamente el separador (";").</li>
+  <li> Los campos que incluyan fechas deben seguir el formato &quot;dd/mm/aaaa hh:mi:ss&quot; 
+  	o &quot;aaaammdd hhmiss&quot;, respetando el n&uacute;mero de caracteres (ejp: &quot;03/02/2010 08:00:00&quot;).</li>
+</ul>
+<br/>
+<table width="650" border="0" cellspacing="0">
+  <tr bgcolor="#FFA701"> 
+    <td width="34%" class="NormalTabla"><div align="center">NOMBRE CAMPO</div></td>
+    <td width="8%" class="NormalTabla"><div align="center">TAMA&Ntilde;O</div></td>
+    <td	width="58%" class="NormalTabla"><div align="center">CARACTER&Iacute;STICAS</div></td>
+  </tr>
+</table>
+<img src="Images/PIXEL.gif" width="650" height="2"><br>
+<table width="650" border="0">
+  <tr> 
+    <td class="NormalTabla">Id Proceso</td>
+    <td class="TextoFunci&oacute;n"><div align="center">20</div></td>
+    <td class="TextoFunci&oacute;n">El identificador del proceso que se quiere aceptar.
+      </td>
+  </tr>
+  <tr bgcolor="#FBCE74"> 
+    <td width="34%" class="NormalTabla">Ventana de cambio</td>
+    <td width="8%" class="TextoFunci&oacute;n"><div align="center">-</div></td>
+    <td width="58%" class="TextoFunci&oacute;n">Campo opcional.
+    	<p>La ventana de cambio preferida por el abonado. Si se deja en blanco, se aceptar&aacute; la
+    	ventana indicada en el SP en caso de que exista, o se mostrará un error en caso negativo.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Nombre de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.
+    	<p>El nombre de la persona de contacto.</p>
+    </td>
+  </tr>
+  <tr bgcolor="#FBCE74"> 
+    <td class="NormalTabla">Tel&eacute;fono de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si se incluye el campo <em>&quot;Nombre de Contacto&quot;</em>.
+    </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Fax de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si se incluye el campo <em>&quot;Nombre de Contacto&quot;</em>.
+    </td>
+  </tr>
+  <tr bgcolor="#FBCE74"> 
+    <td class="NormalTabla">Email de Contacto</td>
+    <td class="TextoFunci&oacute;n"><div align="center">80</div></td>
+    <td class="TextoFunci&oacute;n">Obligatorio si se incluye el campo <em>&quot;Nombre de Contacto&quot;</em>.
+    </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">Rango inicial</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.
+    	<p>N&uacute;mero inicial del rango. Este campo, junto con <em>&quot;Rango Final&quot;</em>,
+    	se podr&aacute; completar tantas veces como sea necesario para <strong>a&ntilde;adir</strong>
+    	nuevos rangos si la solicitud SP ten&iacute;a <strong>marcada</strong> la opci&oacute;n de 
+    	<em>Flag numeraci&oacute;n completa</em>. En caso negativo, no habrá que incluir ning&uacute;n rango.</p>
+    </td>
+  </tr>
+  <tr bgcolor="#FBCE74"> 
+    <td class="NormalTabla">Rango final</td>
+    <td class="TextoFunci&oacute;n"><div align="center">15</div></td>
+    <td class="TextoFunci&oacute;n">Campo opcional.
+    	<p>N&uacute;mero final del rango.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="NormalTabla">...</td>
+    <td class="TextoFunci&oacute;n"><div align="center">-</div></td>
+    <td class="TextoFunci&oacute;n">Tantos rangos extra como sean necesarios, en formato 
+    	<em>&quot;Rango inicial;Rango final&quot;</em>.
+    </td>
+  </tr>
+</table>
+<p class="TextoFunci&oacute;n">El env&iacute;o del mensaje ASP es autom&aacute;tico.</p>
+<p class="TextoFunci&oacute;n"><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p align="right"> 
+  <input type="button" value="Cerrar" onClick="window.close()" name="button">
+</p>
+</body>
+</html>

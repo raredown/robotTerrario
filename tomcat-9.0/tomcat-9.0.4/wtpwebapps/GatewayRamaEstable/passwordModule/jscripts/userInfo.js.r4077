@@ -1,0 +1,159 @@
+function funcall(){
+
+	  document.editUserDetailsForm.mode.value="EditUserDetails";
+	   document.editUserDetailsForm.action="userDetails.do";
+	  document.editUserDetailsForm.submit();
+	}
+	
+function cancelfunction(){
+
+        document.editUserDetailsForm.action=document.editUserDetailsForm.cancelvar.value;
+		 document.editUserDetailsForm.submit();
+		 return false;
+}
+
+function loadfunction(){
+
+       document.editUserDetailsForm.mode.value="LoadforUpdate";
+       document.editUserDetailsForm.submit();
+
+}
+
+function validations(){
+	var y = /^[0-9]+$/;
+	
+	
+	
+//validations for UserID
+if(document.editUserDetailsForm.userId.value==""){
+           alert("Introduzca ID de Usuario.")
+           document.editUserDetailsForm.userId.focus()
+	       return false;
+}
+
+//validations for password
+if(document.editUserDetailsForm.password.value==""){
+          alert("Introduzca Password.")
+          document.editUserDetailsForm.password.focus()
+	      return false;
+}
+
+//validations for ttlpwd
+      if(document.editUserDetailsForm.ttlpwd.value==""){
+         alert("Introduzca Tiempo de vida de la password.")
+         document.editUserDetailsForm.ttlpwd.focus()
+	     return false;
+}
+if(document.editUserDetailsForm.ttlpwd.value!=""){
+	
+	if(document.editUserDetailsForm.ttlpwd.value!=-1){
+	
+	if(!(y.test(document.editUserDetailsForm.ttlpwd.value))){
+		
+            alert(" Tiempo de vida de password tiene que ser número entero.");
+            document.editUserDetailsForm.ttlpwd.focus()
+	      return false;
+	}else if(document.editUserDetailsForm.ttlpwd.value==0){
+		alert(" El valor de tiempo de vida de password no puede ser negativo(excepto -1)");
+		return false;
+	 }
+ }
+}
+
+//validations for timeadvice
+	
+if(document.editUserDetailsForm.timeadvice.value!=""){
+	//if(isNaN(document.editUserDetailsForm.timeadvice.value))
+	if(!(y.test(document.editUserDetailsForm.timeadvice.value))){
+			alert(" El tiempo de antelación de aviso, debe ser un número entero.")
+			document.editUserDetailsForm.timeadvice.focus()
+			return false;
+	}else if(document.editUserDetailsForm.timeadvice.value<=0){
+			alert(" El tiempo de antelación de aviso, debe ser mayor a cero.");
+			return false;
+	 }
+ if(document.editUserDetailsForm.ttlpwd.value!="" && document.editUserDetailsForm.ttlpwd.value!=-1 ){
+ 		 if(eval(24*document.editUserDetailsForm.ttlpwd.value)<= eval(document.editUserDetailsForm.timeadvice.value)){
+  				 alert("El timepo de antelación de aviso debe ser menor a el tiempo de vida del password.");
+   				 return false;
+		}
+     }
+}
+
+//validations for norPasswrods
+	if(document.editUserDetailsForm.norPasswrods.value==""){
+alert("Introduzca el número de passwords")
+document.editUserDetailsForm.norPasswrods.focus()
+	return false;
+}
+	if(document.editUserDetailsForm.norPasswrods.value!=""){
+	//if(isNaN(document.editUserDetailsForm.norPasswrods.value))
+	if(!(y.test(document.editUserDetailsForm.norPasswrods.value))){
+alert(" El número de passwords tiene que ser entero")
+document.editUserDetailsForm.norPasswrods.focus()
+	return false;
+}
+	}
+
+	//validations for lfbblockuser
+	if(document.editUserDetailsForm.lfbblockuser.value==""){
+alert("Introduzca las validaciones fallidas antes del bloqueo")
+document.editUserDetailsForm.lfbblockuser.focus()
+	return false;
+}
+	if(document.editUserDetailsForm.lfbblockuser.value!=""){
+	//if(isNaN(document.editUserDetailsForm.lfbblockuser.value))
+	if(!(y.test(document.editUserDetailsForm.lfbblockuser.value))){
+    alert(" El valor de las validaciones tiene que ser entero")
+    document.editUserDetailsForm.lfbblockuser.focus()
+	return false;
+    }
+}
+	
+if(document.editUserDetailsForm.casesensitive.checked==true){
+	
+	document.editUserDetailsForm.casesensitive.value="Y";
+
+}else{
+   document.editUserDetailsForm.casesensitive.value="N";
+
+}
+
+//Validaciones para elección de operador
+var total = document.editUserDetailsForm.numTotalOp.value;
+
+        for (j=0; j < total; j++){
+
+            if (dameCampoUser('chooseOpe',j).checked){
+
+                    document.editUserDetailsForm.operadores.value+=dameCampoUser('operador',j).value+"+";
+            }
+        }
+        if (document.editUserDetailsForm.operadores.value == ""){
+          alert('Tiene que seleccionar un operador como minimo');
+          return false;
+        }	
+        
+
+
+document.editUserDetailsForm.mode.value="Update";
+	document.editUserDetailsForm.submit();
+
+return true
+}
+
+function modefun(){
+
+document.editUserDetailsForm.mode.value="EditUnblock";
+document.editUserDetailsForm.editunblock.value="EditUnblock";
+document.editUserDetailsForm.submit();
+}	
+
+
+function dameCampoUser(campo,num){
+    if(document.getElementById)
+      var campo=document.getElementById(campo+num);
+    else
+      var campo = document.all[campo+num];
+    return campo;
+}

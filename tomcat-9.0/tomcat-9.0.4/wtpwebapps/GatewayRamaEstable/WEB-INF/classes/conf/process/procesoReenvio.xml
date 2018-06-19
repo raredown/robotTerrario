@@ -1,0 +1,139 @@
+<ConfigurationTasks>
+	<Task name="SP">
+		<InitialStatus>PEND REENV</InitialStatus>
+        <TieneProcesoReferencia>0</TieneProcesoReferencia>
+		<AlarmsToCreate/>
+		<AlarmsToDelete />
+		<MessagesToRestore />
+		<RestaurarNumeracion>1</RestaurarNumeracion>
+		<AlarmaFinPlazoReenvio />
+        <RestauraPendientes>0</RestauraPendientes>
+	</Task>
+	<Task name="MN">
+		<InitialStatus>PEND REENV</InitialStatus>
+        <TieneProcesoReferencia>0</TieneProcesoReferencia>
+		<AlarmsToCreate/>
+		<AlarmsToDelete />
+		<MessagesToRestore />
+		<RestaurarNumeracion>1</RestaurarNumeracion>
+		<AlarmaFinPlazoReenvio />
+        <RestauraPendientes>0</RestauraPendientes>
+	</Task>
+	<Task name="CNM">
+		<InitialStatus>EspSTC0</InitialStatus>
+        <FinalStatus>PEND REENV</FinalStatus>
+        <TieneProcesoReferencia>1</TieneProcesoReferencia>
+        <NumerationStatus>07</NumerationStatus>
+		<AlarmsToCreate>
+			<Alarm name="A20" />
+			<Alarm name="A32" />
+		</AlarmsToCreate>
+		<AlarmsToDelete />
+		<MessagesToRestore>
+			<MsgRestore name="MN" />
+		</MessagesToRestore>
+		<RestaurarNumeracion>0</RestaurarNumeracion>
+		<AlarmaFinPlazoReenvio>A32</AlarmaFinPlazoReenvio>
+        <RestauraPendientes>0</RestauraPendientes>
+	</Task>
+	<Task name="NB">
+		<InitialStatus>PEND REENV</InitialStatus>
+        <TieneProcesoReferencia>0</TieneProcesoReferencia>
+		<AlarmsToCreate/>
+		<AlarmsToDelete />
+		<MessagesToRestore />
+		<RestaurarNumeracion>1</RestaurarNumeracion>
+		<AlarmaFinPlazoReenvio />
+        <RestauraPendientes>0</RestauraPendientes>
+	</Task>
+	<Task name="SNP">
+		<InitialStatus>PEND REENV</InitialStatus>
+        <TieneProcesoReferencia>0</TieneProcesoReferencia>
+		<AlarmsToCreate/>
+		<AlarmsToDelete />
+		<MessagesToRestore />
+		<RestaurarNumeracion>0</RestaurarNumeracion>
+		<AlarmaFinPlazoReenvio />
+        <RestauraPendientes>0</RestauraPendientes>
+	</Task>
+	<Task name="DIN">
+		<InitialStatus>PEND REENV</InitialStatus>
+        <TieneProcesoReferencia>0</TieneProcesoReferencia>
+		<AlarmsToCreate/>
+		<AlarmsToDelete />
+		<MessagesToRestore />
+		<RestaurarNumeracion>0</RestaurarNumeracion>
+		<AlarmaFinPlazoReenvio />
+        <RestauraPendientes>0</RestauraPendientes>
+	</Task>
+	<Task name="ASP">
+		<InitialStatus>SP PEND</InitialStatus>
+        <TieneProcesoReferencia>0</TieneProcesoReferencia>
+		<AlarmsToCreate>
+			<Alarm name="A02" />
+			<Alarm name="A05" />
+		</AlarmsToCreate>
+		<AlarmsToDelete>
+			<Alarm name="A13" />
+		</AlarmsToDelete>
+		<MessagesToRestore>
+			<MsgRestore name="SP" />
+		</MessagesToRestore>
+		<RestaurarNumeracion>0</RestaurarNumeracion>
+		<AlarmaFinPlazoReenvio>A02</AlarmaFinPlazoReenvio>
+        <RestauraPendientes>1</RestauraPendientes>
+	</Task>
+	<Task name="DSP2">
+		<InitialStatus>SP PEND</InitialStatus>
+        <TieneProcesoReferencia>0</TieneProcesoReferencia>
+		<AlarmsToCreate>
+			<Alarm name="A02" />
+			<Alarm name="A05" />
+		</AlarmsToCreate>
+		<MessagesToRestore>
+			<MsgRestore name="SP" />
+		</MessagesToRestore>
+		<RestaurarNumeracion>0</RestaurarNumeracion>
+		<AlarmaFinPlazoReenvio>A02</AlarmaFinPlazoReenvio>
+        <RestauraPendientes>1</RestauraPendientes>
+	</Task>
+    <Task name="CNCR">
+		<InitialStatus>ASP PEND;ENVIE CP</InitialStatus>
+        <FinalStatus>PEND REENV</FinalStatus>
+        <TieneProcesoReferencia>1</TieneProcesoReferencia>
+        <NumerationStatus>03;05</NumerationStatus>
+		<AlarmsToCreate>
+			<Alarm name="01;ASP;A13" />
+            <Alarm name="01;CP;A07" />
+            <Alarm name="01;CP;A10" />
+            <Alarm name="01;CP;A11" />
+            <Alarm name="01;CP;A16" />
+            <Alarm name="01;CP;A24" />
+            <Alarm name="01;CP;A25" />
+		</AlarmsToCreate>
+		<AlarmsToDelete />
+		<MessagesToRestore>
+			<MsgRestore name="ASP" />
+            <MsgRestore name="CP" />
+		</MessagesToRestore>
+		<RestaurarNumeracion>0</RestaurarNumeracion>
+		<AlarmaFinPlazoReenvio>A10</AlarmaFinPlazoReenvio>
+        <RestauraPendientes>0</RestauraPendientes>
+	</Task>
+    <Task name="CNCD">
+		<InitialStatus>ESP.CP</InitialStatus>
+        <FinalStatus>PEND REENV</FinalStatus>
+        <TieneProcesoReferencia>1</TieneProcesoReferencia>
+        <NumerationStatus>03</NumerationStatus>
+		<AlarmsToCreate>
+			<Alarm name="01;ASP;A13" />
+		</AlarmsToCreate>
+		<AlarmsToDelete />
+		<MessagesToRestore>
+            <MsgRestore name="ASP" />
+		</MessagesToRestore>
+		<RestaurarNumeracion>0</RestaurarNumeracion>
+		<AlarmaFinPlazoReenvio>A10</AlarmaFinPlazoReenvio>
+        <RestauraPendientes>0</RestauraPendientes>
+	</Task>
+</ConfigurationTasks>

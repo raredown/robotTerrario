@@ -1,0 +1,169 @@
+.main { 
+	background-color:#99CCCC;
+}
+.header {
+background-color:#99CCCC; 
+}
+.menu {
+background-color:#99CCCC; 
+}
+.body {
+background-color:#99CCCC;
+}
+
+.footer {
+background-color:#99CCCC; 
+}
+.formText {
+	font : 15px Verdana, Arial, Helvetica, sans-serif;
+		margin-left:3px;
+}
+.vign-login-button {
+	background-color:#feae31;
+	color: #333;
+	font-weight:bold;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #fece83 #8c601b #8c601b #fece83;
+	padding:.2em .8em;
+}
+
+input.text {
+	font : 15px Verdana, Arial, Helvetica, sans-serif;
+	margin:4px 0 0 0;
+	border: 1px solid #666666; 
+	/*background-color:#e0ebfc;*/
+}
+
+input.button {
+	font : 15px Verdana, Arial, Helvetica, sans-serif;
+	margin:4px 0 0 0;
+	border: 1px solid #666666; 
+	/*background-color:#e0ebfc;*/
+}
+
+input.submit {
+	font : 15px Verdana, Arial, Helvetica, sans-serif;
+	margin:4px 0 0 0;
+	border: 1px solid #666666; 
+	/*background-color:#e0ebfc;*/
+}
+
+input.radio {
+	font : 15px Verdana, Arial, Helvetica, sans-serif;
+	margin:4px 0 0 0;
+	/*border: 1px solid #666666; */
+	/*background-color:#e0ebfc;*/
+}
+
+input.checkbox {
+	font : 15px Verdana, Arial, Helvetica, sans-serif;
+	margin:4px 0 0 0;
+	/*border: 1px solid #666666; */
+	/*background-color:#e0ebfc;*/
+}
+
+
+
+select { 
+	font : 15px Verdana, Arial, Helvetica, sans-serif;
+	margin:4px 0 0 0;
+	border: 1px solid #666666; 
+	/*background-color:#e0ebfc;*/
+}
+
+textarea {
+	overflow:auto;
+	font : 15px Verdana, Arial, Helvetica, sans-serif;
+	margin:4px 0 0 0;
+	border: 1px solid #666666; 
+
+}
+
+a:link  { 
+	text-decoration:none;
+}
+
+a:visited {
+	text-decoration:none; 
+}
+
+a:hover { 
+color:green; text-decoration:underline; 
+}
+
+a:active  {
+text-decoration:none; 
+}
+.mytableContainer {
+	/*width: 65%;		/* table width will be 99% of this*/
+	height: 295px; 	/* must be greater than tbody*/
+	overflow: auto;
+	margin: 0 auto;
+	}
+.mytable {
+	width: 99%;		/*100% of container produces horiz. scroll in Mozilla*/
+	border: none;
+	background-color: #f7f7f7;
+	}
+	
+.mytbody	{  /* child selector syntax which IE6 and older do not support*/
+	overflow: auto; 
+	height: 240px;
+	overflow-x: hidden;
+	}
+	
+.mytheadtr	{
+	position:relative; 
+	top: expression(offsetParent.scrollTop); /*IE5+ only*/
+	}
+	
+.mytheadtd {
+	padding-left: 7px;
+	text-align: left;
+	font-size: 14px; 
+	background-color: papayawhip;
+	color: steelblue;
+	font-weight: bold;
+	border-top: solid 1px #d8d8d8;
+	}	
+.mytheadth {
+	padding-left: 7px;
+	text-align: center;
+	font-size: 14px; 
+	background-color: oldlace;
+	color: steelblue;
+	font-weight: bold;
+	border-top: solid 1px #d8d8d8;
+	}	
+	
+.mytd	{
+	color: #000;
+	padding-left: 7px;
+	/*font-size: 12px;*/
+	text-align: left;
+	border-bottom: solid 1px #d8d8d8;
+	border-left: solid 1px #d8d8d8;
+	vertical-align:top;
+	height:auto;
+	}
+	
+.mytfoottr { /*idea of Renato Cherullo to help IE*/
+      position: relative; 
+      overflow-x: hidden;
+      top: expression(parentNode.parentNode.offsetHeight >= 
+	  offsetParent.offsetHeight ? 0 - parentNode.parentNode.offsetHeight + offsetParent.offsetHeight + offsetParent.scrollTop : 0);
+      }
+
+
+.mytfoottd	{
+	text-align: center;
+	/*font-size: 11px;*/
+	font-weight: bold;
+	background-color: papayawhip;
+	color: steelblue;
+	border-top: solid 1px slategray;
+	}
+
+td:last-child {padding-right: 20px;} /*prevent Mozilla scrollbar from hiding cell content*/
+

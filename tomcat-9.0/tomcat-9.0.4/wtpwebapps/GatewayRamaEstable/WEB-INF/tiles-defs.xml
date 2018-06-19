@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+ "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+ <tiles-definitions>
+   <!-- Base Tiles Definition -->
+   <definition name="base.definition" path="/passwordModule/jsp/model.jsp">
+    <put name="title" value="Model" type="string" />
+      <put name="header" value="/passwordModule/jsp/header.jsp" />
+      <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="footer" value="/passwordModule/jsp/footer.jsp" />
+   </definition>
+   <definition name="edit.definition" path="/passwordModule/jsp/model.jsp">
+      <put name="header" value="/passwordModule/jsp/header.jsp" />
+      <put name="footer" value="/passwordModule/jsp/footer.jsp" />
+   </definition>
+
+   <!-- Tiles Definition -->
+	
+   <!-- Tiles Definition -->
+	<definition name="page.listUsers" extends="base.definition">
+      <put name="title" value="UserManagementModule-Welcome User" type="string" />
+      <put name="body" value="/passwordModule/jsp/Welcome.jsp" />
+	</definition>
+	
+	
+	<!-- Tiles Definition -->
+	<definition name="page.wrongpassword" extends="base.definition">
+      <put name="title" value="UserManagementModule-Wrong Password" type="string"/>
+      <put name="body" value="/passwordModule/jsp/login/passwordwrong.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition -->
+	<definition name="page.ttlexpired" extends="base.definition">
+      <put name="title" value="UserManagementModule-Time To Live Password Expired" type="string" />
+      <put name="body" value="/passwordModule/jsp/login/ttlexpired.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition -->
+	<definition name="page.userblocked" extends="base.definition">
+      <put name="title" value="UserManagementModule-User Blocked" type="string"/>
+      <put name="body" value="/passwordModule/jsp/login/userblocked.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition -->
+	<definition name="page.usernotfound" extends="base.definition">
+      <put name="title" value="UserManagementModule-User Not Found" type="string"/>
+      <put name="body" value="/passwordModule/jsp/login/usernotfound.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition -->
+	<definition name="page.usernotfoundinsystem" extends="base.definition">
+      <put name="title" value="UserManagementModule-User Not Found In The System" type="string"/>
+      <put name="body" value="/passwordModule/jsp/login/usernotfoundinsystem.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition -->
+	<definition name="page.changedwindow" extends="base.definition">
+      <put name="title" value="UserManagementModule-Change Password" type="string"/>
+      <put name="body" value="/passwordModule/jsp/login/changedwindow.jsp" />
+	</definition>
+	
+	<!-- Tiles Definition -->
+	<definition name="page.violated" extends="base.definition">
+      <put name="title" value="UserManagementModule-Violated" type="string" />
+      <put name="body" value="/passwordModule/jsp/login/violated.jsp" />
+	</definition>
+	
+	
+	
+	<!-- Tiles Definition for login -->
+	<definition name="page.frmlogin" extends="base.definition">
+      <put name="title" value="UserManagementModule-Login" type="string"/>
+      <put name="body" value="/passwordModule/jsp/users/welcomeuser.jsp" />
+	</definition>
+
+   <!-- start of  Users Definition -->
+	<definition name="page.Users" extends="base.definition">
+      <put name="title" value="UserManagementModule-Welcome User" type="string" />
+     <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/users/welcomeuser.jsp" />
+	</definition>
+	
+	<definition name="page.newUsers" extends="base.definition">
+      <put name="title" value="UserManagementModule-Create New User" type="string" />
+      <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/users/validateUser.jsp" />
+	</definition>
+	
+	<definition name="page.Userquery" extends="base.definition">
+      <put name="title" value="UserManagementModule-Search User" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/users/usersQuery.jsp" />
+	</definition>
+	<definition name="page.newUserDetails" extends="base.definition">
+      <put name="title" value="UserManagementModule-User Details" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/users/userUpdateSuccess.jsp" />
+	</definition>
+
+	<definition name="page.newUserCreatedSuccess" extends="base.definition">
+      <put name="title" value="UserManagementModule-New User Details" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/users/usersDetails.jsp" />
+	</definition>
+	
+	<definition name="page.userCreatedSuccess" extends="base.definition">
+      <put name="title" value="UserManagementModule-User Created Success" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/users/userCreatedSuccess.jsp" />
+	</definition>
+	<definition name="page.noSystemUser" extends="base.definition">
+      <put name="title" value="UserManagementModule-New User Details" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/users/nouserinsystem.jsp" />
+	</definition>
+	
+	
+	
+	<definition name="page.userQueryDetails" extends="base.definition">
+  <put name="title" value="UserManagementModule-Users Deatils List" type="string"/> 
+  <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+  <put name="body" value="/passwordModule/jsp/users/usersQuerylist.jsp" /> 
+  </definition>
+	
+	<definition name="page.userInfo" extends="base.definition">
+      <put name="title" value="UserManagementModule-Edit User Information" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+     <put name="body" value="/passwordModule/jsp/users/userInfo.jsp" />
+	</definition>
+	
+	<definition name="page.usertemplates" extends="base.definition">
+      <put name="title" value="UserManagementModule-Load Templtae " type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+     <put name="body" value="/passwordModule/jsp/users/loadtemplate.jsp" />
+	</definition>
+	
+	
+	
+	<definition name="page.templatesintouser" extends="base.definition">
+      <put name="title" value="UserManagementModule-Create User" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+     <put name="body" value="/passwordModule/jsp/users/templateintouser.jsp" />
+	</definition>
+	
+	<definition name="page.editUserDetails" extends="base.definition">
+      <put name="title" value="UserManagementModule-Edit User Details Information" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+     <put name="body" value="/passwordModule/jsp/users/edituserdetails.jsp" />
+	</definition>
+	
+	<definition name="page.editDetails" extends="base.definition">
+      <put name="title" value="UserManagementModule-Edit User Details" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+     <put name="body" value="/passwordModule/jsp/users/usersDetails.jsp" />
+	</definition>
+	<definition name="page.updateUserDetails" extends="base.definition">
+      <put name="title" value="UserManagementModule-User Updated Success" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+     <put name="body" value="/userUpdate.do" />
+	</definition>
+	
+	
+	<definition name="page.userView" extends="base.definition">
+      <put name="title" value="UserManagementModule-User View" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+     <put name="body" value="/passwordModule/jsp/users/userView.jsp" />
+	</definition>
+	<definition name="page.userDelete" extends="base.definition">
+      <put name="title" value="UserManagementModule-Delete User" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+     <put name="body" value="/searchUserdetails.do" />
+	</definition>
+	
+	<definition name="page.userDetails" extends="base.definition">
+      <put name="title" value="UserManagementModule-User Details" type="string"/>
+      <put name="body" value="/jsp/users/userDetailsSuccess.jsp" />
+	</definition>
+	
+	
+	<definition name="page.UserList" extends="base.definition">
+      <put name="title" value="UserManagementModule-User List" type="string"/>
+      <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/users/userList.jsp" />
+	</definition>
+	
+	<definition name="page.templateloadforupdate" extends="base.definition">
+      <put name="title" value="UserManagementModule-Template List" type="string"/>
+      <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/users/templateLoad.jsp" />
+	</definition>
+	
+	
+	<definition name="page.loadingTemplate" extends="base.definition">
+      <put name="title" value="UserManagementModule-User Update" type="string"/>
+      <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/users/userInfo.jsp" />
+	</definition>
+	<!-- End of  Users Definition -->
+	<!--Start of   Templates  -->
+	<definition name="page.listTemplates" extends="base.definition">
+      <put name="title" value="UserManagementModule-Template List" type="string"/>
+      <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/tempaltelistpage.do" />
+	</definition>
+	<definition name="page.loadTemplates" extends="base.definition">
+      <put name="title" value="UserManagementModule-Create Template" type="string"/>
+	  <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/templates/templateInfoLoad.jsp" />
+	</definition>
+	
+	<definition name="page.templatesLoad" extends="base.definition">
+      <put name="title" value="UserManagementModule-Load Template" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+     <put name="body" value="/passwordModule/jsp/templates/templateLoad.jsp" />
+	</definition>
+	
+	<definition name="page.TemplatesList" extends="base.definition">
+      <put name="title" value="UserManagementModule-Templates list" type="string" />
+      <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/listTempalte.do" />
+	</definition>
+	
+	<definition name="page.NewTemplates" extends="base.definition">
+      <put name="title" value="UserManagementModule-New Template" type="string"/>
+      <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/templates/template.jsp" />
+	</definition>
+	<definition name="page.TemplateInfo" extends="base.definition">
+      <put name="title" value="UserManagementModule-Update Template Information" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/templates/templateinfo.jsp" />
+	</definition>
+	<definition name="page.error" extends="base.definition">
+      <put name="title" value="UserManagementModule-Error in the Application" type="string"/>
+       <put name="menu" value="/passwordModule/jsp/menu.jsp" />
+      <put name="body" value="/passwordModule/jsp/error.jsp" />
+	</definition>
+	
+<!--End of   Templates  -->
+	
+	
+   <!-- Tiles Definition -->
+	<definition name="page.error" extends="base.definition">
+      <put name="title" value="Error in the Application" type="string"/>
+      <put name="body" value="/passwordModule/jsp/error.jsp" />
+      
+      	</definition>
+      	
+      	
+     <definition name="page.ForgotPassword" extends="base.definition">
+	<put name="title" value="UserManagementModule-Forgot Password"  type="string"/>
+	<put name="header" value="/passwordModule/jsp/header.jsp"/>
+	<put name="menu" value="/passwordModule/jsp/empty.jsp"/>
+	<put name="body" value="/passwordModule/jsp/forgotpassword.jsp"/>
+	<put name="footer" value="/passwordModule/jsp/footer.jsp"/>
+	</definition>
+	<definition name="page.ChangePassword" extends ="base.definition">
+	<put name="title" value="UserManagementModule-Change Password" type="string"/>
+	<put name="header" value="/passwordModule/jsp/header.jsp"/>
+	<put name="menu" value="/passwordModule/jsp/empty.jsp"/>
+	<put name="body" value="/passwordModule/jsp/changepassword.jsp"/>
+	<put name="footer" value="/passwordModule/jsp/footer.jsp"/>
+	</definition>
+
+<definition name="page.passwordChanged" extends="base.definition">
+<put name="title" value="UserManagementModule-Password Changed" type="string"/>
+	<put name="header" value="/passwordModule/jsp/header.jsp"/>
+	<put name="menu" value="/passwordModule/jsp/empty.jsp"/>
+	<put name="body" value="/passwordModule/passwordchanged.jsp"/>
+	<put name="footer" value="/passwordModule/jsp/footer.jsp"/>
+</definition>
+<definition name="page.usernameWrong" extends="base.definition">
+<put name="title" value="UserManagementModule-Wrong UserName" type="string"/>
+	<put name="header" value="/passwordModule/jsp/header.jsp"/>
+	<put name="menu" value="/passwordModule/jsp/empty.jsp"/>
+	<put name="body" value="/passwordModule/jsp/usernamewrong.jsp"/>
+	<put name="footer" value="/passwordModule/jsp/footer.jsp"/>
+</definition>
+<definition name="page.newPassword" extends="base.definition">
+<put name="title" value="UserManagementModule-New Password" type="string"/>
+	<put name="header" value="/passwordModule/jsp/header.jsp"/>
+	<put name="menu" value="/passwordModule/jsp/empty.jsp"/>
+	<put name="body" value="/passwordModule/jsp/newpassword.jsp"/>
+	<put name="footer" value="/passwordModule/jsp/footer.jsp"/>
+</definition>
+<definition name="page.passwordCreated" extends="base.definition">
+<put name="title" value="UserManagementModule-Password Created" type="string"/>
+	<put name="header" value="/passwordModule/jsp/header.jsp"/>
+	<put name="menu" value="/passwordModule/jsp/empty.jsp"/>
+	<put name="body" value="/passwordModule/passwordcreated.jsp"/>
+	<put name="footer" value="/passwordModule/jsp/footer.jsp"/>
+</definition>
+
+<definition name="page.credentialserror" extends="base.definition" >
+<put name="title" value="UserManagementModule-Credential Error" type="string"/>
+	<put name="header" value="/passwordModule/jsp/header.jsp"/>
+	<put name="menu" value="/passwordModule/jsp/empty.jsp"/>
+	<put name="body" value="/passwordModule/jsp/credentialserror.jsp"/>
+	<put name="footer" value="/passwordModule/jsp/footer.jsp"/>
+</definition>
+
+<!--  <definition name="page.userDetails" extends="base.definition">
+  <put name="title" value="List of Users Deatils" type="string"/> 
+  <put name="body" value="/passwordModule/jsp/usersDetails.jsp" /> 
+  </definition>
+-->
+
+<definition name="page.passworddiffered" extends="base.definition">
+<put name="title" value="/passwordModule/jsp/empty.jsp" type="string"/>
+	<put name="header" value="/passwordModule/jsp/header.jsp"/>
+	<put name="menu" value="/passwordModule/jsp/empty.jsp"/>
+	<put name="body" value="/passwordModule/jsp/newpassword.jsp"/>
+	<put name="footer" value="/passwordModule/jsp/footer.jsp"/>	
+
+</definition>
+<definition name="page.passwordnotmatched" extends="base.definition">
+<put name="title" value="/passwordModule/jsp/empty.jsp" type="string"/>
+	<put name="header" value="/passwordModule/jsp/header.jsp"/>
+	<put name="menu" value="/passwordModule/jsp/empty.jsp"/>
+	<put name="body" value="/passwordModule/jsp/newpassword.jsp"/>
+	<put name="footer" value="/passwordModule/jsp/footer.jsp"/>	
+
+</definition>
+</tiles-definitions>

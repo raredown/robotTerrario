@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+		PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+		"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+		
+<sqlMap>
+	<resultMap id="numeracionPortadaVO" class="es.portanode.consultaBDR.BDRVO">
+		<result property="numero" column="NUMERO"/>
+		<result property="donante" column="DONANTE"/>
+		<result property="descripcionDonante" column="DES_DONANTE"/>
+		<result property="receptor" column="RECEPTOR"/>
+		<result property="descripcionReceptor" column="DES_RECEPTOR"/>
+		<result property="donanteInicial" column="DONANTE_INICIAL"/>
+		<result property="descripcionDonanteInicial" column="DES_DONANTE_INICIAL"/>
+		<result property="nrnActual" column="NRN_ACTUAL"/>
+		<result property="nrnAnterior" column="NRN_ANTERIOR"/>
+		<result property="infoTarifa" column="INFO_TARIFA"/>
+		<result property="ultimoProceso" column="ULTIMO_PROCESO"/>
+		<result property="descripcionUltimoProceso" column="DES_TIPO_PROCESO"/>
+		<result property="inicioProceso" column="INICIO_PROCESO"/>
+		<result property="inicioVentana" column="INICIO_VENTANA"/>
+		<result property="duracionVentana" column="DURACION_VENTANA"/>
+		<result property="estado" column="ESTADO"/>
+		<result property="descripcionEstadoNumeracion" column="DES_ESTADO_NUMERACION"/>
+	</resultMap>
+		
+	<select id="getListaBDRFiltradaPorRangoNumeracion" 
+			parameterClass="es.portanode.consultaBDR.displaytag.ParametroConsulta" 
+			resultMap="numeracionPortadaVO">
+		 select 
+            NUMERO, 
+            DONANTE, 
+            DON.DESCRIPCION as DES_DONANTE,
+            RECEPTOR, 
+            REC.DESCRIPCION as DES_RECEPTOR,
+            DONANTE_INICIAL,
+            DONINI.DESCRIPCION as DES_DONANTE_INICIAL, 
+            NRN_ACTUAL, 
+            NRN_ANTERIOR, 
+            INFO_TARIFA, 
+            ULTIMO_PROCESO, 
+            TP.DESCRIPCION as DES_TIPO_PROCESO,
+            INICIO_PROCESO, 
+            INICIO_VENTANA, 
+            DURACION_VENTANA, 
+            ESTADO,
+            EN.DESCRIPCION as DES_ESTADO_NUMERACION
+        from 
+            NUMERACION_PORTADA NP 
+	        left outer join OPERADOR DON on NP.DONANTE = DON.CODIGO    
+	        left outer join OPERADOR REC on NP.RECEPTOR = REC.CODIGO
+	        left outer join OPERADOR DONINI on NP.DONANTE_INICIAL = DONINI.CODIGO
+	        left outer join TIPO_PROCESO TP on NP.ULTIMO_PROCESO = TP.CODIGO
+	        left outer join ESTADO_NUMERACION EN on NP.ESTADO = EN.CODIGO
+		where
+			NUMERO between #rangoInicial# and #rangoFinal#
+		order by	
+			NUMERO
+	</select>	
+	
+	<select id="getTotalRegistrosListaBDRFiltradaPorRangoNumeracion" 
+			parameterClass="es.portanode.consultaBDR.displaytag.ParametroConsulta" 
+			resultClass="es.portanode.consultaBDR.displaytag.NumeroTotalRegistros">
+		select
+			count(*) as totalRegistros
+		from 
+			NUMERACION_PORTADA 
+		where
+			NUMERO between #rangoInicial# and #rangoFinal#
+	</select>	
+</sqlMap>

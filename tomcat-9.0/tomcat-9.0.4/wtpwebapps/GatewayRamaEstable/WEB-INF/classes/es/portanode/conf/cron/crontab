@@ -1,0 +1,41 @@
+### Lectura de mensajes de XCEMail, XCEFile y XCEMQ
+* * * * * es.portanode.planificador.agente.AgentReceiveDaemon
+* * * * * es.portanode.planificador.agente.AgentReceiveFileDaemon
+
+### Procesador de alarmas
+* * * * * es.portanode.planificador.CompruebaAlarma
+
+### Envio diferido de solicitudes
+* 8-19 * * 1-5 es.portanode.procesos.ProcesarSolicitudesPendientes
+* 8-19 * * 1-5 es.portanode.procesos.ProcesarCancelacionesPendientes
+* 8-19 * * 1-5 es.portanode.procesos.ProcesarBajasPendientes
+* 8-19 * * 1-5 es.portanode.procesos.ProcesarCancelacionesBajasPendientes
+* 8-19 * * 1-5 es.portanode.procesos.ProcesarModificacionesNRNPendientes
+* 8-19 * * 1-5 es.portanode.procesos.ProcesarCancelacionesModificacionesPendientes
+
+### Adquisicion MN
+*/30 * * * * es.portanode.procesos.adquisicion.TratarAdqMN 00038
+
+### Adquisicion de Operadores
+0 21 * * 1-5 es.portanode.planificador.obtenerFicheroOperadores.ProcesarFicheroOperadores
+
+### Reseteo de secuencias de generacion de Id Procesos 
+50 7 * * * es.portanode.planificador.ReseteaContadores
+
+### Notificacion por correo de procesos expirados
+0 9 * * * es.portanode.planificador.CompruebaExpirados
+
+### Paso de VOLCADO_TERCEROS a PROVISION_RED
+* * * * * es.portanode.provision.CargaProvisionesTerceros
+
+### Purgado de la tabla VOLCADO_TERCEROS
+0 */2 * * * es.portanode.planificador.PurgaVolcadoTerceros
+
+### Purgado de la tabla PROVISION_RED
+0 */2 * * * es.portanode.planificador.PurgaProvisionRed
+
+### Envio de las notificaciones pendientes de NOTIFICACIONES por correo
+*/5 * * * * es.portanode.planificador.EnviaNotificacionesCorreo
+
+### Borrado de la tabla SESIONES_ACTIVAS
+*/10 * * * *  es.gateway.sesiones.BorrarRegSessiones

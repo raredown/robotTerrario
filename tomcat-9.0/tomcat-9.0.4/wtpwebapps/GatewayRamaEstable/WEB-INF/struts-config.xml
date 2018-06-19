@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+   <data-sources />
+   
+   <form-beans>
+   			<form-bean name="ConsultaBDRForm" type="es.portanode.consultaBDR.struts.ConsultaBDRForm" />
+   
+  			<form-bean name="AccesoPerfilesForm" type="es.gateway.sesiones.perfiles.forms.PerfilesForm" />
+			<form-bean name="userValidateForm" type="es.gateway.sesiones.users.struts.form.UserForm" />
+			<form-bean name="userlistform" type="es.gateway.sesiones.users.struts.form.UserForm" />
+			<form-bean name="userinfoform" type="es.gateway.sesiones.users.struts.form.UserForm" />
+			<form-bean name="editUserDetailsForm" type="es.gateway.sesiones.users.struts.form.UserDetailsForm" />
+			<form-bean name="deleteDetailsForm" type="es.gateway.sesiones.users.struts.form.UserForm" />
+			<form-bean name="viewDetailsform" type="es.gateway.sesiones.users.struts.form.UserForm" />
+			<form-bean name="loginUserForm" type="es.gateway.sesiones.users.struts.form.LoginForm" />
+			<form-bean name="validateUserForm" type="es.gateway.sesiones.users.struts.form.ValidateUserForm" />
+			<form-bean name="userDetailsForm" type="es.gateway.sesiones.users.struts.form.UserDetailsForm" />
+		
+		<!--start of templates -->
+			<form-bean name="templateForm" type="es.gateway.sesiones.users.struts.form.TemplateForm" />
+			<form-bean name="templateListForm" type="es.gateway.sesiones.users.struts.form.TemplateForm" />
+			<form-bean name="templateUpdateForm" type="es.gateway.sesiones.users.struts.form.TemplateForm" />
+			<form-bean name="templateInformationForm" type="es.gateway.sesiones.users.struts.form.TemplateForm" />
+			<form-bean name="listTemplateForm" type="es.gateway.sesiones.users.struts.form.TemplateForm" />
+		<!--end of templates -->
+   
+   </form-beans>
+   
+   <global-exceptions />
+   
+	<global-forwards>
+		<forward name="info" path="/info.jsp" />
+		<forward name="error" path="/error.jsp" />
+		<forward name="exito" path="/exito.jsp" />
+		<forward name="download" path='/jsp/consultas/download.jsp' />
+		<forward name="inicio" path="/MenuPrincipal.jsp"></forward>
+	</global-forwards>
+   
+   <action-mappings>
+   		<!-- modulo de consultas bdr -->
+   		<action path="/ConsultaBDRAction" 
+   				type="es.portanode.consultaBDR.struts.ConsultaBDRAction" 
+   				scope="request" 
+   				validate="false" 
+   				name="ConsultaBDRForm">
+   			
+   			<forward name="exito" path="/lista_NP.jsp" />
+		</action>		
+   		
+  		 <action path="/Inicio" type="es.gateway.struts.action.InicioAction" parameter="accion"> </action>
+   		
+   
+   		<!-- modulo de opciones de usuario -->
+		<action path="/MenuOpcionesUsuario" type="es.gateway.struts.action.MenuOpcionesUsuarioAction" parameter="accion">
+			<forward name="cambioPass" path="/passwordModule/jsp/cambioPass.jsp" />
+			<forward name="moduloUsuarios" path="page.listUsers" />
+			<forward name="moduloPerfiles" path="/profileModule/jsp/conMenu.jsp" />
+		</action>
+
+		<!-- Prefiles -->
+		<action path="/MantenimientoUsuariosAction" type="es.gateway.sesiones.users.struts.action.MantenimientoUsuariosAction"
+			scope="request" validate="false" name="UsuariosForm" parameter="accion">
+			<forward name="valido" path="/passwordModule/home.jsp"></forward>
+			<forward name="success" path="page.listUsers"></forward>
+		</action>
+		<action path="/MantenimientoPerfilesAction" type="es.gateway.sesiones.perfiles.action.MantenimientoPerfilesAction" 
+			scope="request" validate="false" name="UsuariosForm" parameter="accion">
+			<forward name="valido" path="/gestidiomas"></forward>
+			<forward name="menu" path="/profileModule/jsp/conMenu.jsp"></forward>
+			<forward name="altaPerfil" path="/profileModule/jsp/altaPerfil.jsp"></forward>
+			<forward name="prePerfil" path="/profileModule/jsp/prePerfil.jsp"></forward>
+			<forward name="bajaPerfil" path="/profileModule/jsp/bajaPerfil.jsp"></forward>
+			<forward name="editaPerfil" path="/profileModule/jsp/editaPerfil.jsp"></forward>
+			<forward name="vePerfil" path="/profileModule/jsp/vePerfil.jsp"></forward>
+		</action>
+		<action path="/AccesoPerfilesAction" type="es.gateway.sesiones.perfiles.action.AccesoPerfilesAction"
+			scope="request" validate="false" name="AccesoPerfilesForm" parameter="accion">
+			<forward name="ok" path="/profileModule/jsp/ok.jsp"></forward>
+			<forward name="ko" path="/profileModule/jsp/ko.jsp"></forward>
+		</action>
+		<!-- Fin de modulo de opciones de usuario -->
+		
+		<!-- MODULO USUARIOS Y PERFILES -->
+		<action name="loginUserForm" input="/passwordModule/jsp/validateUser.jsp"
+			scope="request" validate="false" path="/login"
+			type="es.gateway.sesiones.users.struts.action.LoginAction">
+			<forward name="success" path="page.listUsers" />
+			<forward name="failed" path="/passwordModule/home.jsp" />
+			<forward name="wrongpassword" path="/passwordModule/home.jsp" />
+			<forward name="ttlxpired" path="page.newPassword" />
+			<forward name="userblocked" path="/passwordModule/home.jsp" />
+			<forward name="usernotfound" path="/passwordModule/home.jsp" />
+			<forward name="usernotfoundinsystem" path="/passwordModule/home.jsp" />
+			<forward name="changedwindow" path="page.changedwindow" />
+			<forward name="violated" path="page.violated" />
+			<forward name="changethepassword" path="page.newPassword" />
+			<forward name="chnagePwdIfLoginFirstTime" path="page.newPassword" />
+			<forward name="userTypeIsNotAdmin" path="/passwordModule/home.jsp" />
+			<forward name="connectionRefused" path="/passwordModule/home.jsp" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+		</action>
+
+		<!-- Start of userdetails -->
+		<action name="userDetailsForm" input="/passwordModule/jsp/users/usersDetails.jsp"
+			scope="request" validate="false" path="/userDetails"
+			type="es.gateway.sesiones.users.struts.action.UserDetailsAction">
+			<forward name="create" path="page.userCreatedSuccess" />
+			<forward name="update" path="page.updateUserDetails" />
+			<forward name="editDetails" path="page.editUserDetails" />
+			<forward name="primarykey" path="page.newUsers" />
+			<forward name="usernotfound" path="page.newUsers" />
+			<forward name="insertfailure" path="page.newUsers" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+			<forward name="error" path="page.error" />
+		</action>
+		<!-- End of user details -->
+		<!--Start of  Templates  -->
+		<action name="templateForm" input="/passwordModule/jsp/templates/template.jsp"
+			scope="request" validate="false" path="/template"
+			type="es.gateway.sesiones.users.struts.action.TemplateAction">
+			<forward name="existe"	path="page.NewTemplates" />
+			<forward name="success" path="page.listTemplates" />
+			<forward name="load" path="page.templatesLoad" />
+			<forward name="loadtemplate" path="page.loadTemplates" />
+			<forward name="delete" path="page.TemplatesList" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+			<forward name="failed" path="page.error" />
+		</action>
+		<action name="templateListForm" input="/passwordModule/jsp/template.jsp"
+			scope="request" validate="false" path="/tempaltelistpage"
+			type="es.gateway.sesiones.users.struts.action.TemplateListAction">
+			<forward name="success"
+				path="/passwordModule/jsp/templates/templatelist.jsp" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+			<forward name="failed" path="/passwordModule/jsp/error.jsp" />
+		</action>
+		<action name="listTemplateForm" input="/passwordModule/jsp/template.jsp"
+			scope="request" validate="false" path="/listTempalte"
+			type="es.gateway.sesiones.users.struts.action.TemplateListAction">
+			<forward name="success"
+				path="/passwordModule/jsp/templates/listTemplates.jsp" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+			<forward name="failed" path="/passwordModule/jsp/error.jsp" />
+		</action>
+		<action name="templateUpdateForm" input="/passwordModule/jsp/templates/templatelist.jsp"
+			scope="request" validate="false" path="/templateupdate"
+			type="es.gateway.sesiones.users.struts.action.TemplateAction">
+			<forward name="success" path="page.TemplateUpdate" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+			<forward name="failed" path="/passwordModule/jsp/error.jsp" />
+		</action>
+		<action name="templateInformationForm" input="/passwordModule/jsp/templates/templatelist.jsp"
+			scope="request" validate="false" path="/templateInfo"
+			type="es.gateway.sesiones.users.struts.action.TemplateInfoAction">
+			<forward name="success" path="page.TemplateInfo" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+			<forward name="failed" path="/passwordModule/jsp/error.jsp" />
+		</action>
+		<action path="/home" forward="/passwordModule/home.jsp" />
+		<action path="/templatelist" forward="page.listTemplates" />
+		<action name="templateForm" path="/newtemplate" forward="page.NewTemplates" />
+		<action path="/deleteTemplate" forward="page.TemplatesList" />
+		<!--End of  Templates  -->
+		<!--start of  Users -->
+		<action path="/userlist" forward="page.Users" />
+
+		<!-- <action path="/newuser" forward="page.newUsers" />-->
+		<action path="/newuser" scope="request" name="userValidateForm" type="es.gateway.sesiones.users.struts.action.NewUserAction">
+			<forward name="success" path="page.newUsers" />
+		</action>
+		<action path="/searchUser" forward="page.Userquery" />
+		<action path="/searchUserdetails" forward="/passwordModule/jsp/users/usersQuery.jsp" />
+		<action path="/queryback" forward="page.userQueryDetails" />
+		<action path="/backlist" forward="page.userQueryDetails" />
+		<action name="userDetailsForm" input="/passwordModule/jsp/users/newusermenu.jsp"
+			scope="request" validate="false" path="/usersQuery"
+			type="es.gateway.sesiones.users.struts.action.UserDetailsAction">
+			<forward name="success" path="page.userQueryDetails" />
+			<forward name="search" path="page.userQueryDetails" />
+			<forward name="error" path="page.error" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+		</action>
+		<action name="userValidateForm" input="/passwordModule/jsp/users/validateUser.jsp"
+			scope="request" validate="false" path="/validateUser"
+			type="es.gateway.sesiones.users.struts.action.UserAction">
+			<forward name="existe" path="page.newUsers"/>
+			<forward name="noSystemUser" path="page.noSystemUser" />
+			<forward name="create" path="page.newUserCreatedSuccess" />
+			<forward name="success" path="page.newUserDetails" />
+			<forward name="load" path="page.usertemplates" />
+			<forward name="loadtemplate" path="page.templatesintouser" />
+			<forward name="loadforUpdate" path="page.templateloadforupdate" />
+			<forward name="loadingtemplate" path="page.loadingTemplate" />
+			<forward name="unblock" path="/viewDetails.do" />
+			<forward name="EditUnblock" path="/userinfo.do" />
+			<forward name="error" path="page.error" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+		</action>
+		<action name="userlistform" input="/passwordModule/jsp/users/userList.jsp"
+			scope="request" validate="false" path="/userquerylist"
+			type="es.gateway.sesiones.users.struts.action.UserListAction">
+			<forward name="success" path="page.UserList" />
+			<forward name="failed" path="/passwordModule/jsp/error.jsp" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+		</action>
+		<action name="userinfoform" input="/passwordModule/jsp/users/userList.jsp"
+			scope="request" validate="false" path="/userinfo"
+			type="es.gateway.sesiones.users.struts.action.UserInfoAction">
+			<forward name="success" path="page.userInfo" />
+			<forward name="failed" path="/passwordModule/jsp/error.jsp" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+		</action>
+		<action name="viewDetailsform" input="/passwordModule/jsp/users/userList.jsp"
+			scope="request" validate="false" path="/viewDetails"
+			type="es.gateway.sesiones.users.struts.action.UserInfoAction">
+			<forward name="success" path="page.userView" />
+			<forward name="edituser" path="/passwordModule/jsp/users/userInfo.jsp" />
+			<forward name="failed" path="/passwordModule/jsp/error.jsp" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+		</action>
+		<action name="deleteDetailsForm" input="/jsp/users/userList.jsp"
+			scope="request" validate="false" path="/deleteDetails"
+			type="es.gateway.sesiones.users.struts.action.UserAction">
+			<forward name="delete" path="/usersdelete.do" />
+			<forward name="failed" path="/passwordModule/jsp/error.jsp" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+			<forward name="error" path="page.userQueryDetails" />
+		</action>
+		<action path="/usersdelete" type="es.gateway.sesiones.users.struts.action.UserDeleteAction">
+			<forward name="search" path="page.userQueryDetails" />
+		</action>
+		<action name="editUserDetailsForm" input="/passwordModule/jsp/users/userList.jsp"
+			scope="request" validate="false" path="/edituserDetails"
+			type="es.gateway.sesiones.users.struts.action.UserDetailsAction">
+			<forward name="create" path="page.editDetails" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+			<forward name="failed" path="/passwordModule/jsp/error.jsp" />
+		</action>
+		<action name="userinfoform" input="/passwordModule/jsp/users/userList.jsp"
+			scope="request" validate="false" path="/userUpdate"
+			type="es.gateway.sesiones.users.struts.action.UserUpdateInfoAction">
+			<forward name="success" path="/passwordModule/jsp/users/userInfo.jsp" />
+			<forward name="failed" path="/passwordModule/jsp/error.jsp" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+		</action>
+		<!--End of  Users -->
+		<action path="/forgotpassword" forward="page.ForgotPassword" />
+		<!-- <action path="/changepassword" forward="page.ChangePassword"/>-->
+		<action path="/getpassword" type="es.gateway.sesiones.users.struts.action.GetPassword">
+			<forward name="usernameCorrect" path="page.passwordChanged" />
+			<forward name="userblocked" path="/passwordModule/home.jsp" />
+			<forward name="usernameWrong" path="/passwordModule/home.jsp" />
+			<forward name="failed" path="/passwordModule/home.jsp" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+			<forward name="mailNotFound" path="/passwordModule/home.jsp" />
+			<forward name="mailNotSent" path="/passwordModule/home.jsp">
+			</forward>
+		</action>
+		<action path="/changePassword" type="es.gateway.sesiones.users.struts.action.ChangePassword">
+			<forward name="changethepassword" path="page.newPassword" />
+			<forward name="checkthecredentials" path="page.credentialserror" />
+			<forward name="failed" path="/passwordModule/home.jsp" />
+			<forward name="wrongpassword" path="/passwordModule/home.jsp" />
+			<forward name="ttlxpired" path="page.newPassword" />
+			<forward name="userblocked" path="/passwordModule/home.jsp" />
+			<forward name="usernotfound" path="/passwordModule/home.jsp" />
+			<forward name="usernotfoundinsystem" path="passwordModule/home.jsp" />
+			<forward name="changedwindow" path="page.changedwindow" />
+			<forward name="violated" path="page.violated" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+		</action>
+		<action path="/createnewpassword" type="es.gateway.sesiones.users.struts.action.CreatePassword">
+			<forward name="passwordmatched" path="page.passwordCreated" />
+			<forward name="passworddiffered" path="page.passworddiffered" />
+			<forward name="passwordnotmatched" path="page.passwordnotmatched" />
+			<forward name="connectionRefused" path="/passwordModule/home.jsp" />
+			<forward name="sessionEnded" path="/passwordModule/home.jsp" />
+		</action>
+		<!-- End user management -->
+   
+  		 <!-- salir -->
+		<action path="/MenuSalir" type="es.gateway.struts.action.MenuSalirAction"
+			parameter="accion">
+			<forward name="salir" path="/AutenticacionJSP" />
+		</action>
+		<!-- Fin de la Salida exit -->
+   
+   
+   </action-mappings>
+   
+   <controller bufferSize="4096" debug="0" />
+   
+   <message-resources parameter="es.portanode.conf.languages.ApplicationResources" />
+   <message-resources parameter="es.gateway.sesiones.resources.users.ApplicationResources" key="usersmodule" />
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+	</plug-in>
+</struts-config>

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Documento sin t&iacute;tulo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="Hoja_estilos_ayuda.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+function capa(name){
+var NCapas=document.all.tags("DIV")
+for(i=0;i<NCapas.length;i++)
+	if(NCapas[i].id!="") NCapas[i].style.display="none"
+	eval("d"+name+".style.display=''");
+}
+</script>
+</head>
+
+<body class="TextoFunción" onload="capa(3)">
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<span class="cabecera">Usuarios de la Aplicaci&oacute;n</span> 
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p> Desde este programa podremos realizar todas las operaciones de administraci&oacute;n 
+  de usuarios.</p>
+<p> <span>El Sistema nos visualizar&aacute; una relaci&oacute;n de todos los usuarios.</span></p> 
+ 
+<img src="Images/image3_2_1_1.jpg" width="770" height="41"> 
+<p>Las opciones de que disponemos en este punto son:</p
+>
+  <ul>1. Crear nuevos usuarios.- para lo que pulsaremos el bot&oacute;n &#8220;Alta&#8221;.<br>
+  2. Modificar un usuario.- activaremos el radio asociado al usuario a modificar 
+  y pulsaremos el bot&oacute;n &#8220;modificaci&oacute;n&#8221;.<br>
+  3. Eliminar un usuario.- seleccionaremos el usuario como en el caso anterior, </ul>
+  </p>
+<table width="500" border="0" cellspacing="0" align="center">
+  <tr> 
+    <td><a name="m1" ></a> <h3  class="Titulo" onclick="capa(1)"><a href="#"> 
+        <img src="Images/Boton_alta.jpg" alt="alta" width="101" height="25" border="0"></a></h3></td>
+    <td><a name="m2" ></a> <h3 class="Titulo" onclick="capa(2)"><a href="#">
+	    <img src="Images/Boton_modificacion.jpg" width="103" height="24" border="0"></a></h3></td>
+    <td><a name="m3" ></a> <h3 class="Titulo" onclick="capa(3)"><a href="#"> <img src="Images/Boton_baja.jpg" width="102" height="25" border="0"></a></h3></td>
+  </tr>
+</table>
+
+
+
+  			
+<div id="d1"> 
+ <p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+  <p align="center" class="cabecera">A l t a </p>
+ <p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+  <p>Cuando pulsemos el bot&oacute;n de alta se visualizar&aacute; la siguiente 
+    ventana:</p>
+  <p  align="center"> <img src="Images/image3_2_1_2.jpg" width="335" height="224"></p>
+    <table width="650" border="0" cellspacing="0">
+      <tr> 
+        <td width="40"><div align="center" class="CabTabla">NOMBRE</div></td>
+        <td	width="60"><div align="center" class="CabTabla">DESCRIPCIÓN</div></td>
+      </tr>
+    </table>
+   <img src="Images/PIXEL.gif" width="650" height="2"><br>
+    <table width="650" border="0">
+      <tr bgcolor="#96E792"> 
+        <td width="40%" class="NormalTabla">Usuario<br></td>
+        <td width="60%" class="TextoFunci&oacute;n">C&oacute;digo de usuario</td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td class="NormalTabla">Contrase&ntilde;a</td>
+        <td class="TextoFunci&oacute;n">Contrase&ntilde;a asociada al usuario</td>
+      </tr>
+      <tr bgcolor="#96E792"> 
+        <td class="NormalTabla">Nombre</td>
+        <td class="TextoFunci&oacute;n">Nombre propio del usuario</td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td class="NormalTabla">Apellidos</td>
+        <td class="TextoFunci&oacute;n">Apellidos del usuario</td>
+      </tr>
+      <tr bgcolor="#96E792"> 
+        
+      <td class="NormalTabla">Tel&eacute;fono</td>
+        <td class="TextoFunci&oacute;n">N&uacute;mero de tel&eacute;fono del usuario</td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td class="NormalTabla">Fax</td>
+        <td class="TextoFunci&oacute;n">N&uacute;mero de Fax del usuario</td>
+      </tr>
+      <tr bgcolor="#96E792"> 
+        <td class="NormalTabla">Email</td>
+        <td class="TextoFunci&oacute;n">Direcci&oacute;n del correo electr&oacute;nico 
+          del usuario</td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td class="NormalTabla">Perfil</td>
+        <td class="TextoFunci&oacute;n">Perfil operativo del usuario, puede ser: 
+          Administrador o Generador </td>
+      </tr>
+      <tr bgcolor="#96E792">
+        <td class="NormalTabla">Operador</td>
+        <td class="TextoFunci&oacute;n">Seleccione Operador Telef&oacute;nico 
+          al que pertenece el usuario </td>
+      </tr>
+    </table>
+    <p class="TextoFunci&oacute;n">Las acciones disponibles desde esta pantalla 
+      son:</p>
+    <table width="650" border="0" cellspacing="0">
+      <tr> 
+        <td width="95" ><img src="Images/Boton_alta.jpg"></td>
+        <td width="551" class="TextoFunci&oacute;n"> Inserta el registro en la 
+          base de datos </td>
+      </tr>
+      <tr> 
+        <td height="22"><img src="Images/Boton_pag_anterior.jpg" width="103" height="26"></td>
+        <td class="TextoFunci&oacute;n"> Volver a la p&aacute;gina anterior </td>
+      </tr>
+    </table>
+ </div>
+  			
+<div id="d2">
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+ <p align="center" class="cabecera">M o d i f i c a c i ó n </p>
+ <p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+  <p>Tras seleccionar la l&iacute;nea a modificar por media del radio button y 
+    pulsar el bot&oacute;n de modificaci&oacute;n se visualizar&aacute; la siguiente 
+    ventana: </p>
+  <p><img src="Images/image3_2_1_3.jpg" width="347" height="234"></p>
+  <p>En este formulario se podr&aacute; modificar cualquiera de los datos representados, 
+    el campo contrase&ntilde;a no es visualizado, pero si se teclea una nueva 
+    contrase&ntilde;a, esta ser&aacute; valida a partir de este momento. Si por 
+    el contrario no es modificada y permanece en blanco la contrase&ntilde;a se 
+    conservar&aacute;.</p>
+ 
+   <p class="TextoFunci&oacute;n">Las acciones disponibles desde esta pantalla 
+    son:</p>
+  <table width="650" border="0" cellspacing="0">
+    <tr> 
+      <td width="95" height="22"><img src="Images/Boton_aceptar.jpg" width="103" height="25"></td>
+      <td width="551" class="TextoFunci&oacute;n"> Actualiza la informaci&oacute;n 
+        del usuario en la base de datos</td>
+    </tr>
+    <tr> 
+      <td height="22"><img src="Images/Boton_pag_anterior.jpg" width="103" height="26"></td>
+      <td class="TextoFunci&oacute;n"> Volver a la p&aacute;gina anterior </td>
+    </tr>
+  </table>
+</div>
+<div id="d3">
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+ <p align="center" class="cabecera">B a j a  </p>
+ <p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+  <p>Tras seleccionar la l&iacute;nea a eliminar por medio del radio button y 
+    pulsar el bot&oacute;n de baja se visualizar&aacute; la siguiente ventana: 
+  </p>
+  <p><img src="Images/image3_2_1_4.jpg" width="222" height="167"></p>
+  <p>La funci&oacute;n de esta ventana es la de solicitar la confirmaci&oacute;n 
+    de la eliminaci&oacute;n del registro de usuario de la base de datos.</p>
+ 
+   <p class="TextoFunci&oacute;n">Las acciones disponibles desde esta pantalla 
+    son:</p>
+  <table width="650" border="0" cellspacing="0">
+    <tr> 
+      <td width="95" height="22"><img src="Images/Boton_aceptar.jpg" width="103" height="25"></td>
+      <td width="551" class="TextoFunci&oacute;n"> Elimina la informaci&oacute;n 
+        del usuario en la base de datos</td>
+    </tr>
+  </table>
+</div>
+<p><img src="Images/PIXEL.gif" width="650" height="2"></p>
+<p class="TextoFunci&oacute;n">&nbsp;</p>
+<p align="right"> 
+  <input type="button" value="Cerrar" onClick="window.close()" name="button">
+</p>
+</body>
+</html>
