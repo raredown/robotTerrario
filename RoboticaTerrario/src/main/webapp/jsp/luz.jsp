@@ -9,10 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+        <script src="../js/jquery.js"></script>
+        <script src="../js/bootstrap.js"></script>
+
+
+
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <jsp:include page="../jsp/includes/navegador.jsp" />
         <form name="frm" method="post" action="../ComunicacionArduino">
             <input type="submit" name="luz" value="1">
             <input type="submit" name="luz" value="0">

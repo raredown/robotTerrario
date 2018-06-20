@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -70,19 +71,26 @@ public class ComunicacionArduino extends HttpServlet implements SerialPortEventL
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("luz")!=null) {
-            String variable = request.getParameter("luz");
-            //encender
-            if (variable.equals(Constantes.UNO)) {
-                output.write(Constantes.UNO.getBytes());
-            }else{
-                output.write("2".getBytes());
-            }
-            System.out.println("*************************************");
+        if (request.getParameter("escribirArduino")!=null) {
+            output.write(request.getParameter("escribirArduino").getBytes());
             output.flush();
         }
-        
-        response.sendRedirect("jsp/luz.jsp");
+        if (request.getParameter("luz") != null) {
+            String variable = request.getParameter("luz");
+            ServletContext ctx = request.getServletContext();
+            System.out.println("Esto esta en el contexto"+ctx.getAttribute("temperaturaFria"));
+            //encender
+            if (variable.equals(Constantes.UNO)) {
+                System.out.println("Encender Luz dia");
+                output.write(Constantes.UNO.getBytes());
+            } else {
+                System.out.println("Apagar Luz dia");
+                output.write("2".getBytes());
+            }
+            output.flush();
+            response.sendRedirect("jsp/luz.jsp");
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -201,13 +209,12 @@ public class ComunicacionArduino extends HttpServlet implements SerialPortEventL
 
                 while (input.ready()) {
                     c = input.read();
-                    //Since c is an integer, cast it to a char. If it isn't -1, it will be in the correct range of char.
                     response.append((char) c);
                 }
                 String result = response.toString();
                 System.out.println(result);
-                // String inputLine = input.readLine();
-                //System.out.println(inputLine);
+                ManejadorDatos manejadorDatos = new ManejadorDatos();
+                manejadorDatos.mandarDatos(result);
             } catch (Exception e) {
                 e.printStackTrace();
                 System.err.print("Error a intentar abri el puerto" + e);

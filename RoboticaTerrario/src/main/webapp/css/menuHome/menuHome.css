@@ -1,25 +1,42 @@
-#circulo {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
-    background: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+@-webkit-keyframes shake {
+    0% {
+        -webkit-transform: rotate(0);
+    }
+    10% {
+        -webkit-transform: rotate(10deg);
+    }
+    20% {
+        -webkit-transform: rotate(-10deg);
+    }
+    30% {
+        -webkit-transform: rotate(0);
+    }
+    50% {
+        -webkit-transform: rotate(5deg);
+    }
+    70% {
+        -webkit-transform: rotate(-5deg);
+    }
+    100% {
+        -webkit-transform: rotate(0);
+    }
 }
-#circulo > p {
-    font-family: sans-serif;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
+/* Background Gradient for Analagous Colors */
+.gradient2
+{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d5cea6+8,c9c190+40,b7ad70+100 */
+    background: #d5cea6; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #d5cea6 8%, #c9c190 40%, #b7ad70 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, #d5cea6 8%,#c9c190 40%,#b7ad70 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, #d5cea6 8%,#c9c190 40%,#b7ad70 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5cea6', endColorstr='#b7ad70',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 #huevo {
     width: 14rem;
     height: 18rem;
     margin-left: 50px;
-    background-color: #F0EAD6;
+    background: #F0EAD6 -webkit-radial-gradient(left top, rgba(255, 255, 255, .8), rgba(255, 255, 255, .1));
     -moz-border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     -webkit-border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
@@ -27,13 +44,26 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-direction: column;
 }
-#huevo > p {
-    font-family: sans-serif;
-    color: black;
+#huevo:hover {
+    -webkit-animation: shake 1s infinite alternate;
+    -webkit-transition: opacity 3s ease;
+}
+p.titulo {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+p.subTitulo {
     font-size: 1rem;
     font-weight: bold;
 }
+p.temperaturaText{
+    font-size: 2.7rem;
+}
 .contenedorPrincipal{
-    margin-top: 150px;
+    margin-top: 50px;
+}
+.tituloPrincipal{
+    padding: 1%;
 }
