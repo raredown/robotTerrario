@@ -71,29 +71,13 @@ public class ComunicacionArduino extends HttpServlet implements SerialPortEventL
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("escribirArduino")!=null) {
+        if (request.getParameter("escribirArduino") != null) {
             output.write(request.getParameter("escribirArduino").getBytes());
             output.flush();
         }
-        if (request.getParameter("luz") != null) {
-            String variable = request.getParameter("luz");
-            ServletContext ctx = request.getServletContext();
-            System.out.println("Esto esta en el contexto"+ctx.getAttribute("temperaturaFria"));
-            //encender
-            if (variable.equals(Constantes.UNO)) {
-                System.out.println("Encender Luz dia");
-                output.write(Constantes.UNO.getBytes());
-            } else {
-                System.out.println("Apagar Luz dia");
-                output.write("2".getBytes());
-            }
-            output.flush();
-            response.sendRedirect("jsp/luz.jsp");
-        }
-
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -199,6 +183,7 @@ public class ComunicacionArduino extends HttpServlet implements SerialPortEventL
 
     @Override
     public void serialEvent(SerialPortEvent oEvent) {
+
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
                 //Esta manera vale si no es un puerto virtualizado

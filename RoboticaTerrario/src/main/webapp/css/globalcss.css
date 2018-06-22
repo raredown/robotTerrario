@@ -1,0 +1,19 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21-jun-2018, 9:55:55
+    Author     : X45558RE
+*/
+
+.gradient2
+{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d5cea6+8,c9c190+40,b7ad70+100 */
+    background: #d5cea6; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #d5cea6 8%, #c9c190 40%, #b7ad70 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, #d5cea6 8%,#c9c190 40%,#b7ad70 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, #d5cea6 8%,#c9c190 40%,#b7ad70 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5cea6', endColorstr='#b7ad70',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}

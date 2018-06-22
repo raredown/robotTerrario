@@ -17,3 +17,13 @@ tomcat-9.0/logs/localhost_access_log.2018-06-20.txt
 tomcat-9.0/logs/localhost.2018-06-20.log
 tomcat-9.0/logs/host-manager.2018-06-20.log
 tomcat-9.0/logs/catalina.2018-06-20.log
+tomcat-9.0/logs/manager.2018-06-22.log
+tomcat-9.0/logs/host-manager.2018-06-21.log
+tomcat-9.0/logs/catalina.2018-06-22.log
+tomcat-9.0/logs/catalina.2018-06-21.log
+tomcat-9.0/logs/manager.2018-06-21.log
+tomcat-9.0/logs/localhost_access_log.2018-06-22.txt
+tomcat-9.0/logs/localhost_access_log.2018-06-21.txt
+tomcat-9.0/logs/localhost.2018-06-22.log
+tomcat-9.0/logs/localhost.2018-06-21.log
+tomcat-9.0/logs/host-manager.2018-06-22.log

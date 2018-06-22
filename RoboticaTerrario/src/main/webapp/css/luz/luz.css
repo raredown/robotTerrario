@@ -1,0 +1,13 @@
+.responsiveImagen {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    moz-transform: scaleY(-1); /* Firefox */
+    -o-transform: scaleY(-1); /* Opera */
+    -webkit-transform: scaleY(-1); /* Chrome y Safari */
+    transform: scaleY(-1); /* w3org */
+    filter: FlipV; /* Internet Explorer */
+}
+.contedorLuces{
+    text-align: center;
+}

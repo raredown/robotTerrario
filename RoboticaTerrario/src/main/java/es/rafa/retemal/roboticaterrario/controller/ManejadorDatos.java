@@ -27,12 +27,36 @@ public class ManejadorDatos {
             case "temperaturaCaliente":
                 escribirTemperatura(parts[1],parts[0]);
                 break;
-
+            case "luzDia":
+                escribirLuz(parts[1],parts[0]);
+                break;
+             case "luzInfraroja":
+                escribirLuz(parts[1],parts[0]);
+                break;
         }
         
     }
 
-    private void escribirTemperatura(String temperatura,String parametro) {
+    private void escribirLuz(String luz,String parametro) {
+        URL url;
+        try {
+
+            URL request_url = new URL("http://localhost:8080/RoboticaTerrario/LucesController?"+parametro+"=".concat(luz));
+            HttpURLConnection http_conn = (HttpURLConnection) request_url.openConnection();
+            http_conn.setConnectTimeout(100000);
+            http_conn.setReadTimeout(100000);
+            http_conn.setInstanceFollowRedirects(true);
+            http_conn.setDoOutput(true);
+
+            System.out.println(String.valueOf(http_conn.getResponseCode()));
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ManejadorDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ManejadorDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+        private void escribirTemperatura(String temperatura,String parametro) {
         URL url;
         try {
 
@@ -51,4 +75,5 @@ public class ManejadorDatos {
         }
 
     }
+
 }
