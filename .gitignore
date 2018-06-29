@@ -27,3 +27,11 @@ tomcat-9.0/logs/localhost_access_log.2018-06-21.txt
 tomcat-9.0/logs/localhost.2018-06-22.log
 tomcat-9.0/logs/localhost.2018-06-21.log
 tomcat-9.0/logs/host-manager.2018-06-22.log
+tomcat-9.0/logs/manager.2018-06-29.log
+tomcat-9.0/logs/localhost_access_log.2018-06-29.txt
+tomcat-9.0/logs/localhost.2018-06-29.log
+tomcat-9.0/logs/host-manager.2018-06-29.log
+tomcat-9.0/logs/catalina.2018-06-29.log
+tomcat-9.0/conf/Catalina/localhost/WScams.xml
+tomcat-9.0/work/Catalina/localhost/RoboticaTerrario/org/apache/jsp/jsp/video_jsp.java
+tomcat-9.0/work/Catalina/localhost/RoboticaTerrario/org/apache/jsp/jsp/video_jsp.class

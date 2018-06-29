@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div id="huevo">
+                    <div id="huevo" onclick="window.location.href = 'jsp/video.jsp'">
                         <p class="titulo">Video</p>
                     </div>
                 </div>
@@ -51,6 +51,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
     </body>
